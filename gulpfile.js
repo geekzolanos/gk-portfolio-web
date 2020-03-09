@@ -22,16 +22,13 @@ var paths = {
 gulp.task('scripts', function() {
   return gulp.src([
     /* Add your JS files here, they will be combined in this order */
-    'js/vendor/jquery.min.js',
-    'js/vendor/jquery.easing.1.3.js',
-    'js/vendor/jquery.stellar.min.js',
-    'js/vendor/jquery.flexslider-min.js',
-    'js/vendor/jquery.countTo.js',
-    'js/vendor/jquery.appear.min.js',
-    'js/vendor/jquery.magnific-popup.min.js',
-    'js/vendor/owl.carousel.min.js',
-    'js/vendor/bootstrap.min.js',
-    'js/vendor/jquery.waypoints.min.js'
+    'node_modules/jquery/dist/jquery.min.js',
+    'node_modules/jquery-easing/jquery.easing.1.3.js',
+    'node_modules/jquery-countto/jquery.countTo.js',
+    'node_modules/jquery.appear/jquery.appear.js',
+    'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
+    'node_modules/bootstrap/dist/js/bootstrap.min.js',
+    'node_modules/waypoints/lib/jquery.waypoints.min.js'
     ])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('js'))

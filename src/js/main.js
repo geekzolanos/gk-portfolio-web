@@ -118,225 +118,6 @@
 			});
 		}
 	}
-	/*----------------------------------------
-		Carousel
-	----------------------------------------*/
-	var owlCarousel = function(){
-
-		var owl1 = $('.owl-carousel-carousel'),
-			 	owl2 = $('.owl-carousel-carousel2'),
-			 	owl3 = $('.owl-carousel-carousel3');
-		owl1.owlCarousel({
-			items: 3,
-			loop: true,
-			margin: 20,
-			nav: false,
-			dots: false,
-			smartSpeed: 800,
-			autoHeight: true,
-			navText: [
-		      "<i class='icon-keyboard_arrow_left owl-direction'></i>",
-		      "<i class='icon-keyboard_arrow_right owl-direction'></i>"
-	     	],
-	     	responsive:{
-	        0:{
-	            items:1
-	        },
-	        400:{
-	            items:1
-	        },
-	        600:{
-	            items:2
-	        },
-	        1000:{
-	            items:3
-	        }
-	    	}
-		});
-
-		owl2.owlCarousel({
-			items: 3,
-			loop: true,
-			margin: 20,
-			nav: false,
-			dots: false,
-			smartSpeed: 800,
-			autoHeight: true,
-			navText: [
-		      "<i class='icon-keyboard_arrow_left owl-direction'></i>",
-		      "<i class='icon-keyboard_arrow_right owl-direction'></i>"
-	     	],
-	     	responsive:{
-	        0:{
-	            items:1
-	        },
-	        400:{
-	            items:1
-	        },
-	        600:{
-	            items:2
-	        },
-	        1000:{
-	            items:3
-	        }
-	    	}
-		});
-
-		owl3.owlCarousel({
-			items: 3,
-			loop: true,
-			margin: 20,
-			nav: false,
-			dots: false,
-			smartSpeed: 800,
-			autoHeight: true,
-			navText: [
-		      "<i class='icon-keyboard_arrow_left owl-direction'></i>",
-		      "<i class='icon-keyboard_arrow_right owl-direction'></i>"
-	     	],
-	     	responsive:{
-	        0:{
-	            items:1
-	        },
-	        400:{
-	            items:1
-	        },
-	        600:{
-	            items:2
-	        },
-	        1000:{
-	            items:3
-	        }
-	    	}
-		});
-
-
-		// Custom Navigation Events
-		$('.probootstrap-owl-next').click(function(e){
-		  owl1.trigger('next.owl.carousel');
-		  e.preventDefault();
-		});
-		$('.probootstrap-owl-prev').click(function(e){
-		  owl1.trigger('prev.owl.carousel');
-		  e.preventDefault();
-		});
-
-		// Custom Navigation Events
-		$('.probootstrap-owl-next2').click(function(e){
-		  owl2.trigger('next.owl.carousel');
-		  e.preventDefault();
-		});
-		$('.probootstrap-owl-prev2').click(function(e){
-		  owl2.trigger('prev.owl.carousel');
-		  e.preventDefault();
-		});
-
-		// Custom Navigation Events
-		$('.probootstrap-owl-next3').click(function(e){
-		  owl3.trigger('next.owl.carousel');
-		  e.preventDefault();
-		});
-		$('.probootstrap-owl-prev3').click(function(e){
-		  owl3.trigger('prev.owl.carousel');
-		  e.preventDefault();
-		});
-
-		var owl = $('.owl-carousel-fullwidth');
-		owl.owlCarousel({
-			loop: true,
-			margin: 20,
-			nav: false,
-			dots: true,
-			smartSpeed: 800,
-			autoHeight: true,
-			autoplay: true,
-			navText: [
-		      "<i class='icon-keyboard_arrow_left owl-direction'></i>",
-		      "<i class='icon-keyboard_arrow_right owl-direction'></i>"
-	    ],
-	    responsive:{
-	    	0:{
-		      items: 1
-			  },
-			  980:{
-		      items: 1
-			  },
-			  1100:{
-		      items: 2
-			  }
-			}
-		});
-
-		var owl = $('.owl-work');
-		owl.owlCarousel({
-			stagePadding: 150,
-			loop: true,
-			margin: 20,
-			nav: true,
-			dots: false,
-			mouseDrag: false,
-			autoWidth: true,
-			autoHeight: true,
-	    autoplay: true,
-	    autoplayTimeout:2000,
-	    autoplayHoverPause:true,
-			navText: [	
-				"<i class='icon-chevron-thin-left'></i>",
-				"<i class='icon-chevron-thin-right'></i>"
-			],
-			responsive:{
-			  0:{
-		      items:1,
-		      stagePadding: 10
-			  },
-			  500:{
-			  	items:2,
-		      stagePadding: 20
-			  },
-			  600:{
-		      items:2,
-		      stagePadding: 40
-			  },
-			  800: {
-			  	items:2,
-			  	stagePadding: 100
-			  },
-			  1100:{
-		      items:3
-			  },
-			  1400:{
-		      items:4
-			  },
-			}
-		});
-	};
-
-	
-	/*----------------------------------------
-		Slider
-	----------------------------------------*/
-	var flexSlider = function() {
-	  $('.flexslider').flexslider({
-	    animation: "fade",
-	    prevText: "",
-	    nextText: "",
-	    slideshowSpeed: 2000, // speed of slides
-	    animationSpeed: 600,
-	    slideshow: true,
-	    directionNav: false,
-	    controlNav: true
-	  });
-	  $('.flexslider2').flexslider({
-	    animation: "fade",
-	    prevText: "",
-	    nextText: "",
-	    slideshowSpeed: 2000, // speed of slides
-	    animationSpeed: 600,
-	    slideshow: true,
-	    directionNav: false,
-	    controlNav: false
-	  });
-	}
 
 	
 	/*----------------------------------------
@@ -344,37 +125,33 @@
 	----------------------------------------*/
 	var contentWayPoint = function() {
 		var i = 0;
-		$('.probootstrap-animate').waypoint( function( direction ) {
-
-			if( direction === 'down' && !$(this.element).hasClass('probootstrap-animated') ) {
-				
-				i++;
-
-				$(this.element).addClass('item-animate');
-				setTimeout(function(){
-
-					$('body .probootstrap-animate.item-animate').each(function(k){
-						var el = $(this);
-						setTimeout( function () {
-							var effect = el.data('animate-effect');
-							if ( effect === 'fadeIn') {
-								el.addClass('fadeIn probootstrap-animated');
-							} else if ( effect === 'fadeInLeft') {
-								el.addClass('fadeInLeft probootstrap-animated');
-							} else if ( effect === 'fadeInRight') {
-								el.addClass('fadeInRight probootstrap-animated');
-							} else {
-								el.addClass('fadeInUp probootstrap-animated');
-							}
-							el.removeClass('item-animate');
-						},  k * 200, 'easeInOutExpo' );
-					});
-					
-				}, 200);
-				
-			}
-
-		} , { offset: '95%' } );
+		$('.probootstrap-animate').waypoint({
+			handler: function( direction ) {
+				if( direction === 'down' && !$(this.element).hasClass('probootstrap-animated') ) {				
+					i++;
+					$(this.element).addClass('item-animate');
+					setTimeout(function(){
+						$('body .probootstrap-animate.item-animate').each(function(k){
+							var el = $(this);
+							setTimeout( function () {
+								var effect = el.data('animate-effect');
+								if ( effect === 'fadeIn') {
+									el.addClass('fadeIn probootstrap-animated');
+								} else if ( effect === 'fadeInLeft') {
+									el.addClass('fadeInLeft probootstrap-animated');
+								} else if ( effect === 'fadeInRight') {
+									el.addClass('fadeInRight probootstrap-animated');
+								} else {
+									el.addClass('fadeInUp probootstrap-animated');
+								}
+								el.removeClass('item-animate');
+							},  k * 200, 'easeInOutExpo' );
+						});					
+					}, 200);				
+				}
+			},
+			offset: '95%'
+		});
 	};
 
 	
@@ -389,21 +166,22 @@
 	    },
 		});
 	};
+	
 	var counterWayPoint = function() {
 		if ($('#probootstrap-counter').length > 0 ) {
-			$('#probootstrap-counter').waypoint( function( direction ) {
-										
-				if( direction === 'down' && !$(this.element).hasClass('probootstrap-animated') ) {
-					setTimeout( counter , 400);					
-					$(this.element).addClass('probootstrap-animated');
-				}
-			} , { offset: '90%' } );
+			$('#probootstrap-counter').waypoint({
+				handler: function( direction ) {										
+					if( direction === 'down' && !$(this.element).hasClass('probootstrap-animated') ) {
+						setTimeout( counter , 400);					
+						$(this.element).addClass('probootstrap-animated');
+					}
+				},
+				offset: '90%' 
+			});
 		}
 	};
 
 	var magnificPopupControl = function() {
-
-
 		$('.image-popup').magnificPopup({
 			type: 'image',
 			removalDelay: 300,
@@ -455,15 +233,6 @@
       fixedContentPos: false
     });
 	}
-
-	/*----------------------------------------
-		Stellar
-	----------------------------------------*/
-	var stellarInit = function() {
-		if( !isMobile.any() ) {
-			$(window).stellar();
-		}
-	};
 
 	var inlineSVG = function() {
 		$('img.svg').each(function(){
@@ -535,19 +304,10 @@
 		contentWayPoint();
 		backToTop();
 		magnificPopupControl();
-		stellarInit();
 		mobileMenuControl();
 		nextScroll();
 		loaderPage();
 		goToTop();
 		inlineSVG();
 	});
-
-	$(window).load(function(){
-		owlCarousel();
-		flexSlider();
-	});
-
-	
-
 })();

@@ -15,6 +15,12 @@
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
-    "@barba/prefetch": "^2.1.10"
-  }
+    "animate.css": "^3.7.2",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "jquery-countto": "^1.2.0",
+    "jquery-easing": "0.0.1",
+    "jquery.appear": "^1.0.1",
+    "magnific-popup": "^1.1.0",
+    "waypoints": "^4.0.1"
 }
