@@ -595,8 +595,12 @@ a {
 // animate
 .probootstrap-animate {
 	opacity: 0;
-	visibility: hidden;
 }
+
+.probootstrap-animated {
+	animation-duration: .8s;
+	animation-fill-mode: both;
+  }
 
 // form
 .probootstrap-form {
