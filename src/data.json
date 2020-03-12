@@ -61,6 +61,16 @@
                 "url": "https://geekzolanos.github.io/webapps/speedgps/",
                 "repoUrl": "https://github.com/geekzolanos/speedgps-webapp/"
             }
+        },
+        "org.ateneo.hdri": {
+            "type": "web",
+            "name": "UMAVEN",
+            "description": "Sitio web oficial de UMAVEN: Una Mano para Venezuela y el Mundo.",
+            "version": "Oficial",
+            "flags": ["hasFeaturedFrame"],
+            "buttons": {
+                "url": "http://www.1manoparavenezuelayelmundo.org"
+            }
         }
     }
 }
