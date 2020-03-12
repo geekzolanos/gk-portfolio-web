@@ -16,6 +16,9 @@ var reload = browserSync.reload;
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const del = require('del');
+const parseColors = require('./src/js/parseColors');
+
+let payload = {};
 
 /* vendor-js task */
 gulp.task('vendor-js', function() {
@@ -64,9 +67,16 @@ gulp.task('sass', function () {
         .pipe(reload({stream:true}));
 });
 
-gulp.task('html', function() {
+const setupPayload = async () => {
+    payload = JSON.parse(fs.readFileSync('src/data.json'));
+    const pkgs = Object.keys(payload.packages);
+    const colors = await parseColors({pkgs});
+    payload.colors = colors;
+};
+
+gulp.task('html', function() { 
     return gulp.src('src/views/*.njk')
-        .pipe(data(() => JSON.parse(fs.readFileSync('src/data.json'))))
+        .pipe(data(payload))
         .pipe(nunjucksRender({path: ['src/views']}))
         .pipe(gulp.dest('build'));
 });
@@ -102,6 +112,7 @@ function clean() {
 /* Watch scss, js and html files, doing different things with each. */
 gulp.task('default', gulp.series(
     clean,
+    setupPayload,
     gulp.parallel('html', 'sass', 'vendor-js', 'js'), 
     gulp.parallel('browser-sync', 'watch')
 ));
