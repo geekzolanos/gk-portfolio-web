@@ -31,4 +31,10 @@
     "node-vibrant": "^3.1.5",
     "vanilla-lazyload": "^13.0.1",
     "waypoints": "^4.0.1"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "Firefox ESR"
+  ]
 }
