@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var minifycss = require('gulp-minify-css');
+var cleanCSS = require('gulp-clean-css');
 var concat = require('gulp-concat');
 var plumber = require('gulp-plumber');
 var nunjucksRender = require('gulp-nunjucks-render');
@@ -60,7 +60,7 @@ gulp.task('sass', function () {
         .pipe(sourcemaps.init())
         .pipe(autoprefixer())
         .pipe(rename({suffix: '.min'}))
-        //.pipe(minifycss())
+        //.pipe(cleanCSS())
         .pipe(gulp.dest('build/style'))
         /* Reload the browser CSS after every change */
         .pipe(reload({stream:true}));
