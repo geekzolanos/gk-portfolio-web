@@ -27,7 +27,7 @@ gulp.task('vendor-js', function() {
     'node_modules/jquery.appear/jquery.appear.js',
     'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
-    'node_modules/waypoints/lib/jquery.waypoints.min.js'
+    'node_modules/vanilla-lazyload/dist/lazyload.min.js'
     ])
     .pipe(concat('vendor.js'))
     .pipe(rename({suffix: '.min'}))

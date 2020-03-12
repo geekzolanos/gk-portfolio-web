@@ -295,13 +295,18 @@
 	
 	};
 
+	var lazyload = function() {
+		new LazyLoad({
+			elements_selector: "[data-lazyload]",
+			load_delay: 300
+		});
+	};
 	/*----------------------------------------
 		Document Ready 
 	----------------------------------------*/
 	$(document).ready(function(){
 		menuHover();
-		counterWayPoint();
-		contentWayPoint();
+		lazyload();
 		backToTop();
 		magnificPopupControl();
 		mobileMenuControl();
