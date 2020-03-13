@@ -1,16 +1,56 @@
-{% set pkg = packages[i] %}
+{% set pkg = packages[pkgKey] %}
+{% set color = colors[pkgKey] %}
+{% set isOdd = loop.index % 2 == 0 %}
 
-<section class="probootstrap-section-half {{ 'probootstrap-reverse' if loop.index % 2 == 0 }}">
-    <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-color: {{ colors[i] }}">
+<section class="probootstrap-section-half {{ 'probootstrap-reverse' if isOdd }}">
+    {# START Featured Image #}
+    <div class="probootstrap-image" data-animate-effect="fadeIn" style="background-color: {{color}}">
         <div class="img-container absolute-center {{'feat-frame' if pkg.flags and 'hasFeaturedFrame' in pkg.flags}}">
-            <img data-lazyload="true" data-src="/img/packages/thumbs/{{i}}.webp" />        
+            <img data-lazyload="true" data-src="/img/packages/thumbs/{{pkgKey}}.webp" />        
         </div>
     </div>
+    {# END Featured Image #}
+
+    {# START Featured Content #}
     <div class="probootstrap-text">
-        <div class="probootstrap-inner probootstrap-animate">
-            <h1 class="heading">{{ pkg.name }}</h1>
+        <div class="probootstrap-inner" data-aos="{{'fade-left' if isOdd else 'fade-right'}}" data-aos-easing="ease-in-out">
+            <div class="heading">
+                <h1 class="pb-0">{{ pkg.name }}</h1>
+                <ul class="meta--platforms" data-aos="fade-down-small" data-aos-delay="400">
+                    {% for pltKey in pkg.platforms -%}
+                        {% set plt = platforms[pltKey] %}
+                        <li class="ml-1" data-toggle="tooltip" data-placement="top" data-title="{{plt.name}}"><i class="{{plt.iconClass}}"></i></li>
+                    {%- endfor %}
+                </ul>
+            </div>
+
+            {% if pkg.languages %}
+                <p class="meta--lang" data-aos="fade-down-small" data-aos-delay="400">
+                    {% for langKey in pkg.languages %}
+                        {% set langName = languages[langKey] %}
+                        <span class="mr-2"><i class="lang-color lang-{{langKey}} mr-1"></i> {{langName}}</span>
+                    {% endfor %}
+                </p>
+            {% endif %}
+
             <p class="text-justify">{{ pkg.description }}</p>
-            <p><a href="single-page.html" class="btn btn-primary">View Case Study</a></p>
+            
+            {% set btnId = "btn-" + pkgKey | replace('.', '') %}
+            
+            <style>
+                #{{btnId}} {
+                    border-color: {{color}};
+                }
+                #{{btnId}}:hover {
+                    background-color: {{color}};
+                }
+            </style>
+
+            <a href="single-page.html" id="{{btnId}}" class="btn btn-featured" data-aos="fade-in" data-aos-delay="600">
+                <span>Mas Información</span>
+                <i class="icon-arrow-right22"></i>
+            </a> 
         </div>
     </div>
+    {# END Featured Content #}
 </section>
