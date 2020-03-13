@@ -28,8 +28,10 @@ gulp.task('vendor-js', function() {
     'node_modules/jquery-countto/jquery.countTo.js',
     'node_modules/jquery.appear/jquery.appear.js',
     'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
+    'node_modules/popper.js/dist/umd/popper.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
-    'node_modules/vanilla-lazyload/dist/lazyload.min.js'
+    'node_modules/vanilla-lazyload/dist/lazyload.min.js',
+    'node_modules/aos/dist/aos.js'
     ])
     .pipe(concat('vendor.js'))
     .pipe(rename({suffix: '.min'}))

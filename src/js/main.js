@@ -301,12 +301,27 @@
 			load_delay: 300
 		});
 	};
+
+	var bsTooltips = function() {
+		$('[data-toggle="tooltip"]').tooltip();
+	};
+
+	var initAos = function() {
+		AOS.init({ 
+			disableMutationObserver: true,
+			once: true,
+			duration: 650
+		});
+	};
+
 	/*----------------------------------------
 		Document Ready 
 	----------------------------------------*/
 	$(document).ready(function(){
 		menuHover();
 		lazyload();
+		bsTooltips();
+		initAos();
 		backToTop();
 		magnificPopupControl();
 		mobileMenuControl();
