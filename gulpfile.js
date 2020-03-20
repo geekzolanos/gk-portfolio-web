@@ -75,10 +75,23 @@ const setupPayload = async () => {
     payload.colors = colors;
 };
 
+const manageEnvironment = (env) => {
+    env.addFilter('timestamp', function(arr) {
+        return new Date(...arr).getTime();
+    });
+    env.addFilter('date', function(arr) {
+        const iso = new Date(...arr).toISOString();
+        return iso.substring(0, iso.indexOf('T'));
+    });
+};
+
 gulp.task('html', function() { 
     return gulp.src('src/views/*.njk')
         .pipe(data(payload))
-        .pipe(nunjucksRender({path: ['src/views']}))
+        .pipe(nunjucksRender({
+            path: ['src/views'],
+            manageEnv: manageEnvironment
+        }))
         .pipe(gulp.dest('build'));
 });
 
