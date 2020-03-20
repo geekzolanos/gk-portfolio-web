@@ -8,3 +8,29 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.meta--lang,
+.meta--platforms {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li { display: inline-block; }
+}
+
+.meta--lang {
+    .lang-color {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        vertical-align: -2.5px;
+        background-color: gray;
+
+        &.lang-java { background-color: #b07219; }
+        &.lang-js { background-color: #f1e05a; }
+        &.lang-wordpress { background-color: #187aa2; }
+        &.lang-c { background-color: #555555; }
+        &.lang-csharp { background-color: #178600; }
+    }
+}

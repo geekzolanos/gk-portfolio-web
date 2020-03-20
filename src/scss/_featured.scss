@@ -1,81 +1,65 @@
-.meta--lang {
-    font-size: 14px;
-
-    .lang-color {
+.featured {
+    .meta--platforms {
         display: inline-block;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        vertical-align: -2.5px;
-        background-color: gray;
-
-        &.lang-java { background-color: #b07219; }
-        &.lang-js { background-color: #f1e05a; }
-        &.lang-wordpress { background-color: #187aa2; }
-        &.lang-c { background-color: #555555; }
-        &.lang-csharp { background-color: #178600; }
     }
-}
 
-.heading h1 {
-    display: inline-block;
-}
-
-.meta--platforms {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.btn-featured {
-    position: relative;
-    border-width: 2px;
-    border-style: solid;
-    padding-left: 30px;
-    padding-right: 30px;
-    font-size: .895em;
-    transition: background-color 300ms ease;
-
-    span {
+    .meta--lang {
+        font-size: 14px;
+    }
+    
+    .heading h1 {
         display: inline-block;
-        transition: transform 300ms ease;
     }
-
-    i {
-        position: absolute;
-        right: 20px;
-        top: 34%;
-        opacity: 0;
-        transform: scale(.4);
-        transition: transform 300ms ease, opacity 300ms ease;
-    }
-
-    &:focus {
-        color: black;
-    }
-
-    &:hover {
-        color: white;
-
+    
+    .btn-featured {
+        position: relative;
+        border-width: 2px;
+        border-style: solid;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-size: .895em;
+        transition: background-color 300ms ease;
+    
         span {
-            transform: translateX(-10px);
+            display: inline-block;
+            transition: transform 300ms ease;
         }
-
-        i {            
-            transform: scale(1);
-            opacity: 1;
+    
+        i {
+            position: absolute;
+            right: 20px;
+            top: 34%;
+            opacity: 0;
+            transform: scale(.4);
+            transition: transform 300ms ease, opacity 300ms ease;
+        }
+    
+        &:focus {
+            color: black;
+        }
+    
+        &:hover {
+            color: white;
+    
+            span {
+                transform: translateX(-10px);
+            }
+    
+            i {            
+                transform: scale(1);
+                opacity: 1;
+            }
         }
     }
-}
-
-[data-aos="fade-down-small"] {
-    opacity: 0;
-    transform: translateY(-1rem);
-    transition-property: transform, opacity;
-  
-    &.aos-animate {
-      opacity: 1;
-      transform: none;
+    
+    [data-aos="fade-down-small"] {
+        opacity: 0;
+        transform: translateY(-1rem);
+        transition-property: transform, opacity;
+      
+        &.aos-animate {
+          opacity: 1;
+          transform: none;
+        }
     }
 }
