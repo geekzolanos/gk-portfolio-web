@@ -30,8 +30,11 @@ gulp.task('vendor-js', function() {
     'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
     'node_modules/popper.js/dist/umd/popper.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
+    'node_modules/muuri/dist/muuri.min.js',
     'node_modules/vanilla-lazyload/dist/lazyload.min.js',
-    'node_modules/aos/dist/aos.js'
+    'node_modules/aos/dist/aos.js',
+    'node_modules/slim-select/dist/slimselect.min.js',
+    'src/js/lodash.debounce.min.js'
     ])
     .pipe(concat('vendor.js'))
     .pipe(rename({suffix: '.min'}))
