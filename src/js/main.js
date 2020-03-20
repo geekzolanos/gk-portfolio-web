@@ -8,7 +8,7 @@
 	/*----------------------------------------
 		Detect Mobile
 	----------------------------------------*/
-	var isMobile = {
+	const isMobile = {
 		Android: function() {
 			return navigator.userAgent.match(/Android/i);
 		},
@@ -32,21 +32,21 @@
 	/*----------------------------------------
 		Back to top
 	----------------------------------------*/
-	var backToTop = function() {
+	const backToTop = function() {
 		$('.js-backtotop').on('click', function(e){
 			e.preventDefault();
 			$('html, body').animate({
-	      scrollTop: $('body').offset().top
-	    }, 700, 'easeInOutExpo');
+				scrollTop: $('body').offset().top
+			}, 700, 'easeInOutExpo');
 		});
-	}
+	};
 
-	var nextScroll = function() {
+	const nextScroll = function() {
 		$('.js-next').on('click', function(e){
 			e.preventDefault();
 			$('html, body').animate({
-      	scrollTop: $( $.attr(this, 'href') ).offset().top
-    	}, 700, 'easeInOutExpo');
+				scrollTop: $( $.attr(this, 'href') ).offset().top
+			}, 700, 'easeInOutExpo');
 		});
 
 		$(window).scroll(function(){
@@ -61,12 +61,12 @@
 			}
 
 		});
-	}
+	};
 
 	/*----------------------------------------
 		Burger Menu
 	----------------------------------------*/	
-	var mobileMenuControl = function() {
+	const mobileMenuControl = function() {
 		
 
 		// click burger menu
@@ -113,79 +113,28 @@
 	/*----------------------------------------
 		Menu Hover
 	----------------------------------------*/
-	var menuHover = function() {
+	const menuHover = function() {
 		if (!isMobile.any()) {
 			$('.probootstrap-navbar .navbar-nav li.dropdown').hover(function() {
 			  $(this).find('> .dropdown-menu').stop(true, true).delay(200).fadeIn(500).addClass('animated-fast fadeInUp');
 			}, function() {
-				$(this).find('> .dropdown-menu').stop(true, true).fadeOut(200).removeClass('animated-fast fadeInUp')
+				$(this).find('> .dropdown-menu').stop(true, true).fadeOut(200).removeClass('animated-fast fadeInUp');
 			});
 		}
-	}
-
-	
-	/*----------------------------------------
-		Content Animation
-	----------------------------------------*/
-	var contentWayPoint = function() {
-		var i = 0;
-		$('.probootstrap-animate').waypoint({
-			handler: function( direction ) {
-				if( direction === 'down' && !$(this.element).hasClass('probootstrap-animated') ) {				
-					i++;
-					$(this.element).addClass('item-animate');
-					setTimeout(function(){
-						$('body .probootstrap-animate.item-animate').each(function(k){
-							var el = $(this);
-							setTimeout( function () {
-								var effect = el.data('animate-effect');
-								if ( effect === 'fadeIn') {
-									el.addClass('fadeIn probootstrap-animated');
-								} else if ( effect === 'fadeInLeft') {
-									el.addClass('fadeInLeft probootstrap-animated');
-								} else if ( effect === 'fadeInRight') {
-									el.addClass('fadeInRight probootstrap-animated');
-								} else {
-									el.addClass('fadeInUp probootstrap-animated');
-								}
-								el.removeClass('item-animate');
-							},  k * 200, 'easeInOutExpo' );
-						});					
-					}, 200);				
-				}
-			},
-			offset: '95%'
-		});
 	};
-
-	
 
 	/*----------------------------------------
 		Counter Animation
 	----------------------------------------*/
-	var counter = function() {
+	const counter = function() {
 		$('.js-counter').countTo({
-			 formatter: function (value, options) {
-	      return value.toFixed(options.decimals);
-	    },
+			formatter: function (value, options) {
+				return value.toFixed(options.decimals);
+			}
 		});
 	};
-	
-	var counterWayPoint = function() {
-		if ($('#probootstrap-counter').length > 0 ) {
-			$('#probootstrap-counter').waypoint({
-				handler: function( direction ) {										
-					if( direction === 'down' && !$(this.element).hasClass('probootstrap-animated') ) {
-						setTimeout( counter , 400);					
-						$(this.element).addClass('probootstrap-animated');
-					}
-				},
-				offset: '90%' 
-			});
-		}
-	};
 
-	var magnificPopupControl = function() {
+	const magnificPopupControl = function() {
 		$('.image-popup').magnificPopup({
 			type: 'image',
 			removalDelay: 300,
@@ -226,56 +175,53 @@
 			}
 		});
 
-
 		$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-      disableOn: 700,
-      type: 'iframe',
-      mainClass: 'mfp-fade',
-      removalDelay: 160,
-      preloader: false,
+			disableOn: 700,
+			type: 'iframe',
+			mainClass: 'mfp-fade',
+			removalDelay: 160,
+			preloader: false,
 
-      fixedContentPos: false
-    });
-	}
+			fixedContentPos: false
+		});
+	};
 
-	var inlineSVG = function() {
+	const inlineSVG = function() {
 		$('img.svg').each(function(){
-	    var $img = $(this);
-	    var imgID = $img.attr('id');
-	    var imgClass = $img.attr('class');
-	    var imgURL = $img.attr('src');
+			var $img = $(this);
+			var imgID = $img.attr('id');
+			var imgClass = $img.attr('class');
+			var imgURL = $img.attr('src');
 
-	    $.get(imgURL, function(data) {
-	        // Get the SVG tag, ignore the rest
-	        var $svg = jQuery(data).find('svg');
+			$.get(imgURL, function(data) {
+				// Get the SVG tag, ignore the rest
+				var $svg = jQuery(data).find('svg');
 
-	        // Add replaced image's ID to the new SVG
-	        if(typeof imgID !== 'undefined') {
-	            $svg = $svg.attr('id', imgID);
-	        }
-	        // Add replaced image's classes to the new SVG
-	        if(typeof imgClass !== 'undefined') {
-	            $svg = $svg.attr('class', imgClass+' replaced-svg');
-	        }
+				// Add replaced image's ID to the new SVG
+				if(typeof imgID !== 'undefined') {
+					$svg = $svg.attr('id', imgID);
+				}
+				// Add replaced image's classes to the new SVG
+				if(typeof imgClass !== 'undefined') {
+					$svg = $svg.attr('class', imgClass+' replaced-svg');
+				}
 
-	        // Remove any invalid XML tags as per http://validator.w3.org
-	        $svg = $svg.removeAttr('xmlns:a');
+				// Remove any invalid XML tags as per http://validator.w3.org
+				$svg = $svg.removeAttr('xmlns:a');
 
-	        // Replace image with new SVG
-	        $img.replaceWith($svg);
+				// Replace image with new SVG
+				$img.replaceWith($svg);
 
-	    }, 'xml');
-
-	});
+			}, 'xml');
+		});
 	};
 
 	// Loading page
-	var loaderPage = function() {
+	const loaderPage = function() {
 		$(".probootstrap-loader").fadeOut("slow");
 	};
 
-	var goToTop = function() {
-
+	const goToTop = function() {
 		$('.js-gotop').on('click', function(event){
 			
 			event.preventDefault();
@@ -429,11 +375,11 @@
 		new LazyLoad(opts);
 	};
 
-	var bsTooltips = function() {
+	const bsTooltips = function() {
 		$('[data-toggle="tooltip"]').tooltip();
 	};
 
-	var initAos = function() {
+	const initAos = function() {
 		AOS.init({ 
 			disableMutationObserver: true,
 			once: true,
