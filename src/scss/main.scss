@@ -34,3 +34,18 @@
         &.lang-csharp { background-color: #178600; }
     }
 }
+
+.ss-main,
+.ss-main .ss-single-selected,
+.ss-main .ss-multi-selected,
+.ss-main .ss-add {
+    height: 100%;
+}
+
+.ss-main {
+    font-size: .84em;
+}
+
+.ss-main .ss-add {
+    margin-top: 14px !important;
+}

@@ -1,6 +1,7 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %}
+
   <section class="probootstrap-section-half">
     <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url(img/image_1.jpg)"></div>
     <div class="probootstrap-text">
@@ -11,38 +12,48 @@
       </div>
     </div>
   </section>
-  <!-- END section -->
-  <section class="probootstrap-section-half probootstrap-reverse">
-    <div class="probootstrap-image probootstrap-animate"  data-animate-effect="fadeIn" style="background-image: url(img/image_2.jpg)"></div>
-    <div class="probootstrap-text">
-      <div class="probootstrap-inner probootstrap-animate">
-        <h1 class="heading">Ice Cream Sweetness</h1>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-        <p><a href="single-page.html" class="btn btn-primary">View Case Study</a></p>
-      </div>
+
+  <div id="portfolio--header" class="mt80 text-center">
+    <h1 class="mt-5">Todos los proyectos</h1>
+    <p>Consulte a continuacion el catalogo de proyectos creados.</p>
+  </div>
+
+  <div id="portfolio--filters" class="row justify-content-center w-75 mx-auto my-5">
+    <div class="col-3">
+      <input id="search-input" type="text" class="form-control" placeholder="Buscar...">
     </div>
-  </section>
-  <!-- END section -->
-  <section class="probootstrap-section-half">
-    <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url(img/image_3.jpg)"></div>
-    <div class="probootstrap-text">
-      <div class="probootstrap-inner probootstrap-animate">
-        <h1 class="heading">Baloon on the Chair</h1>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-        <p><a href="single-page.html" class="btn btn-primary">View Case Study</a></p>
-      </div>
+
+    <div class="col-3">
+      <select id="portfolio-plt" multiple>
+        <option data-placeholder="true">Plataformas (Todas)</option>
+        {% for key, meta in platforms -%}
+          <option data-icon="{{meta.iconClass}}" value="{{key}}">{{meta.name}}</option>        
+        {%- endfor %}
+      </select>
     </div>
-  </section>
-  <!-- END section -->
-  <section class="probootstrap-section-half probootstrap-reverse">
-    <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url(img/image_4.jpg)"></div>
-    <div class="probootstrap-text">
-      <div class="probootstrap-inner probootstrap-animate">
-        <h1 class="heading">Pink Lips in the Hole</h1>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-        <p><a href="single-page.html" class="btn btn-primary">View Case Study</a></p>
-      </div>
+
+    <div class="col-3">
+      <select id="portfolio-lang" multiple>
+        <option data-placeholder="true">Lenguajes (Todos)</option>
+        {% for key, name in languages -%}
+          <option value="{{key}}">{{name}}</option>        
+        {%- endfor %}
+      </select>
+    </div>  
+
+    <div class="col-3">
+      <select id="portfolio-filter">
+        <option value="0" selected>Fecha de subida (Mas reciente)</option>
+        <option value="1">Fecha de subida (Mas antiguo)</option>
+        <option value="2">Alfabeticamente (A-Z)</option>
+        <option value="3">Alfabeticamente (Z-A)</option>
+      </select>
     </div>
+  </div>
+
+  <section id="portfolio-grid">
+    {% for key, pkg in packages -%}
+      {% include 'components/portfolio-item.njk' %}
+    {%- endfor %}
   </section>
-  <!-- END section -->
 {% endblock %}
