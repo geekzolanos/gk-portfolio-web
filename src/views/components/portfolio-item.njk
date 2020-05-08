@@ -7,6 +7,7 @@
 
     {# BEGIN Content #}
     <div class="content" style="background-color: {{colors[key]}};">
+    <a href="/packages/{{key}}.html">
         
         {# BEGIN Meta #}
         <div class="meta">
@@ -43,8 +44,9 @@
         {# END Meta #}
 
         {# BEGIN Image #}
-        <img data-lazyload="true" data-src="/img/packages/thumbs/{{key}}.webp" />
+        <img data-lazyload="true" data-src="/img/packages/{{key}}/thumb.png" />
         {# END Image #}
+    </a>
     </div>
     {# END Content #}
 </div>    

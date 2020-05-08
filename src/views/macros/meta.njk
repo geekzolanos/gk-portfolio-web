@@ -1,6 +1,6 @@
 {% macro pltItem(plt, tooltip=false) %}
     <li class="ml-1"
-        {{'data-toggle="tooltip" data-placement="top" data-title="' + plt.name + '"' if tooltip}}>
+        {{'data-toggle=tooltip data-placement=top data-title=' + plt.name if tooltip}}>
         <i class="{{plt.iconClass}}"></i>
     </li>
 {% endmacro %}
@@ -20,7 +20,7 @@
         }
     </style>
 
-    <a href="single-page.html" id="{{btnId}}" class="btn btn-featured" data-aos="fade-in" data-aos-delay="600">
+    <a href="/packages/{{key}}.html" id="{{btnId}}" class="btn btn-featured" data-aos="fade-in" data-aos-delay="600">
         <span>Mas Información</span>
         <i class="icon-arrow-right22"></i>
     </a> 
