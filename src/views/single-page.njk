@@ -66,9 +66,12 @@
 
   <section class="probootstrap-section">
     <div class="container">
-      <div class="row row-cols-3">
+      <div class="row row-cols-3">        
+        <div class="col align-self-center">
+          <h1 class="features__heading">Caracteristicas</h1>
+        </div>
         {% for feature in pkg.features -%}
-          <div class="col">          
+          <div class="col" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 200 }}">          
             <div class="service left-icon">
               <div class="icon">
                 <i class="{{feature.iconClass}}"></i>

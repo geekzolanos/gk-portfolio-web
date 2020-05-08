@@ -28,4 +28,17 @@
             }
         }
     }
+
+    .features__heading {
+        font-size: 2.4em;
+
+        &:before {
+            content: '';
+            background-color: $primary;
+            height: 5px;
+            display: block;
+            width: 40%;
+            margin-bottom: 2rem;
+        }
+    }
 }
