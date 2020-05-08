@@ -6,30 +6,6 @@
 	let $portfolioGrid, $portfolioFilters, portfolioCoords = [];
 
 	/*----------------------------------------
-		Detect Mobile
-	----------------------------------------*/
-	const isMobile = {
-		Android: function() {
-			return navigator.userAgent.match(/Android/i);
-		},
-			BlackBerry: function() {
-			return navigator.userAgent.match(/BlackBerry/i);
-		},
-			iOS: function() {
-			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-		},
-			Opera: function() {
-			return navigator.userAgent.match(/Opera Mini/i);
-		},
-			Windows: function() {
-			return navigator.userAgent.match(/IEMobile/i);
-		},
-			any: function() {
-			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-		}
-	};
-
-	/*----------------------------------------
 		Back to top
 	----------------------------------------*/
 	const backToTop = function() {
@@ -41,34 +17,10 @@
 		});
 	};
 
-	const nextScroll = function() {
-		$('.js-next').on('click', function(e){
-			e.preventDefault();
-			$('html, body').animate({
-				scrollTop: $( $.attr(this, 'href') ).offset().top
-			}, 700, 'easeInOutExpo');
-		});
-
-		$(window).scroll(function(){
-
-			var $this = $(this),
-				st = $this.scrollTop();
-
-			if (st > 10) {
-				$('.js-next').addClass('probootstrap-sleep');
-			} else {
-				$('.js-next').removeClass('probootstrap-sleep');
-			}
-
-		});
-	};
-
 	/*----------------------------------------
 		Burger Menu
 	----------------------------------------*/	
 	const mobileMenuControl = function() {
-		
-
 		// click burger menu
 		$('.probootstrap-burger-menu').on('click', function(e){
 			e.preventDefault();
@@ -111,19 +63,6 @@
 	};
 
 	/*----------------------------------------
-		Menu Hover
-	----------------------------------------*/
-	const menuHover = function() {
-		if (!isMobile.any()) {
-			$('.probootstrap-navbar .navbar-nav li.dropdown').hover(function() {
-			  $(this).find('> .dropdown-menu').stop(true, true).delay(200).fadeIn(500).addClass('animated-fast fadeInUp');
-			}, function() {
-				$(this).find('> .dropdown-menu').stop(true, true).fadeOut(200).removeClass('animated-fast fadeInUp');
-			});
-		}
-	};
-
-	/*----------------------------------------
 		Counter Animation
 	----------------------------------------*/
 	const counter = function() {
@@ -134,58 +73,9 @@
 		});
 	};
 
-	const magnificPopupControl = function() {
-		$('.image-popup').magnificPopup({
-			type: 'image',
-			removalDelay: 300,
-			mainClass: 'mfp-with-zoom',
-			gallery:{
-				enabled:true
-			},
-			zoom: {
-				enabled: true, // By default it's false, so don't forget to enable it
-
-				duration: 300, // duration of the effect, in milliseconds
-				easing: 'ease-in-out', // CSS transition easing function
-
-				// The "opener" function should return the element from which popup will be zoomed in
-				// and to which popup will be scaled down
-				// By defailt it looks for an image tag:
-				opener: function(openerElement) {
-				// openerElement is the element on which popup was initialized, in this case its <a> tag
-				// you don't need to add "opener" option if this code matches your needs, it's defailt one.
-				return openerElement.is('img') ? openerElement : openerElement.find('img');
-				}
-			}
-		});
-
-		$('.with-caption').magnificPopup({
-			type: 'image',
-			closeOnContentClick: true,
-			closeBtnInside: false,
-			mainClass: 'mfp-with-zoom mfp-img-mobile',
-			image: {
-				verticalFit: true,
-				titleSrc: function(item) {
-					return item.el.attr('title') + ' &middot; <a class="image-source-link" href="'+item.el.attr('data-source')+'" target="_blank">image source</a>';
-				}
-			},
-			zoom: {
-				enabled: true
-			}
-		});
-
-		$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-			disableOn: 700,
-			type: 'iframe',
-			mainClass: 'mfp-fade',
-			removalDelay: 160,
-			preloader: false,
-
-			fixedContentPos: false
-		});
-	};
-
+	/*----------------------------------------
+		Inline SVG
+	----------------------------------------*/
 	const inlineSVG = function() {
 		$('img.svg').each(function(){
 			var $img = $(this);
@@ -216,11 +106,16 @@
 		});
 	};
 
-	// Loading page
+	/*----------------------------------------
+		Hide Preload
+	----------------------------------------*/
 	const loaderPage = function() {
 		$(".probootstrap-loader").fadeOut("slow");
 	};
 
+	/*----------------------------------------
+		Go To Top
+	----------------------------------------*/
 	const goToTop = function() {
 		$('.js-gotop').on('click', function(event){
 			
@@ -244,6 +139,12 @@
 		});
 	
 	};
+
+	/*----------------------------------------
+		Portfolio Init, Sort and Filtering
+	----------------------------------------*/
+	const reduceFilter = (sel, acc, val) =>  (sel.includes(val) ? ++acc : acc);
+	const includesStr = (t0, t1) => (t1.toLocaleLowerCase().includes(t0.toLocaleLowerCase()));
 
 	const portfolioGrid = function() {
 		var $node = $('#portfolio-grid');
@@ -357,9 +258,9 @@
 		});
 	};
 
-	const reduceFilter = (sel, acc, val) =>  (sel.includes(val) ? ++acc : acc);
-	const includesStr = (t0, t1) => (t1.toLocaleLowerCase().includes(t0.toLocaleLowerCase()));
-
+	/*----------------------------------------
+		Image Lazyload
+	----------------------------------------*/
 	const lazyload = function() {
 		const opts = {
 			elements_selector: "[data-lazyload]",
@@ -372,13 +273,19 @@
 				$portfolioGrid.layout();
 			};
 
-		new LazyLoad(opts);
+		return new LazyLoad(opts);
 	};
 
+	/*----------------------------------------
+		Bootstrap
+	----------------------------------------*/
 	const bsTooltips = function() {
 		$('[data-toggle="tooltip"]').tooltip();
 	};
 
+	/*----------------------------------------
+		Animate On Scroll
+	----------------------------------------*/
 	const initAos = function() {
 		AOS.init({ 
 			disableMutationObserver: true,
@@ -388,20 +295,45 @@
 	};
 
 	/*----------------------------------------
+		Swiper
+	----------------------------------------*/
+	const swiper = function() {
+		return new Swiper ('.single__slideshow', {
+			effect: 'fade',
+			autoplay: {
+				delay: 4500,
+				disableOnInteraction: false
+			}
+		});
+	}
+
+	/*----------------------------------------
+		FancyBox
+	----------------------------------------*/
+	const fancybox = function() {
+		$('[data-fancybox="slideshow"]').fancybox({
+			animationEffect: "zoom",
+			arrows: false,
+			infobar: false,
+			toolbar: false
+		});
+	}
+
+	/*----------------------------------------
 		Document Ready 
 	----------------------------------------*/
 	$(document).ready(function(){
-		menuHover();
+		counter();
 		portfolioGrid();
 		lazyload();
 		bsTooltips();
 		initAos();
 		backToTop();
-		magnificPopupControl();
 		mobileMenuControl();
-		nextScroll();
 		loaderPage();
 		goToTop();
 		inlineSVG();
+		swiper();
+		fancybox();
 	});
 })();
