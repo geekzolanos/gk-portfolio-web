@@ -3,21 +3,21 @@
 {% set color = colors[pkgKey] %}
 {% set isOdd = loop.index % 2 == 0 %}
 
-<section class="featured probootstrap-section-half {{ 'probootstrap-reverse' if isOdd }}">
+<section class="featured probootstrap-section-half d-flex {{ 'probootstrap-reverse' if isOdd }}">
     {# BEGIN Featured Image #}
     <div class="probootstrap-image" data-animate-effect="fadeIn" style="background-color: {{color}}">
         <div class="img-container absolute-center {{'feat-frame' if pkg.flags and 'hasFeaturedFrame' in pkg.flags}}">
-            <img data-lazyload="true" data-src="/img/packages/thumbs/{{pkgKey}}.webp" />        
+            <img data-lazyload="true" data-src="/img/packages/{{pkgKey}}/thumb.png" />        
         </div>
     </div>
     {# END Featured Image #}
 
     {# BEGIN Featured Content #}
-    <div class="probootstrap-text">
+    <div class="probootstrap-text d-flex">
         <div class="probootstrap-inner" data-aos="{{'fade-left' if isOdd else 'fade-right'}}" data-aos-easing="ease-in-out">
             <div class="heading">
-                <h1 class="pb-0">{{ pkg.name }}</h1>
-                <ul class="meta--platforms" data-aos="fade-down-small" data-aos-delay="400">
+                <h1 class="pb-0 d-inline-block">{{ pkg.name }}</h1>
+                <ul class="meta--platforms d-inline-block" data-aos="fade-down-small" data-aos-delay="400">
                     {% for pltKey in pkg.platforms -%}
                         {{ meta.pltItem(platforms[pltKey], true) }}
                     {%- endfor %}
