@@ -2,6 +2,7 @@
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
+    "event-stream": "^4.0.1",
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-clean-css": "^4.2.0",
@@ -13,11 +14,13 @@
     "gulp-sass": "latest",
     "gulp-sourcemaps": "latest",
     "gulp-uglify": "latest",
-    "nunjucks": "^3.2.0"
+    "merge-stream": "^2.0.0",
+    "nunjucks": "^3.2.1"
   },
   "dependencies": {
     "@barba/core": "^2.9.7",
     "@barba/prefetch": "^2.1.10",
+    "@fancyapps/fancybox": "^3.5.7",
     "animate.css": "^3.7.2",
     "aos": "^3.0.0-beta.6",
     "bootstrap": "^4.4.1",
@@ -25,12 +28,12 @@
     "jquery-countto": "^1.2.0",
     "jquery-easing": "0.0.1",
     "jquery.appear": "^1.0.1",
-    "magnific-popup": "^1.1.0",
     "muuri": "^0.8.0",
     "nearest-color": "^0.4.4",
     "node-vibrant": "^3.1.5",
     "popper.js": "^1.16.1",
     "slim-select": "^1.25.0",
+    "swiper": "^5.3.6",
     "vanilla-lazyload": "^13.0.1"
   },
   "browserslist": [
