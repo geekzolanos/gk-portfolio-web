@@ -1,6 +1,13 @@
+@import 'variables';
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+
 @import "theme";
 @import "portfolio";
 @import "featured";
+@import "single";
 
 .absolute-center {
     position: absolute;
@@ -26,12 +33,10 @@
         border-radius: 50%;
         vertical-align: -2.5px;
         background-color: gray;
-
-        &.lang-java { background-color: #b07219; }
-        &.lang-js { background-color: #f1e05a; }
-        &.lang-wordpress { background-color: #187aa2; }
-        &.lang-c { background-color: #555555; }
-        &.lang-csharp { background-color: #178600; }
+        
+        @each $name, $color in $lang-colors {
+            &.lang-#{$name} { background-color: $color; }
+        }
     }
 }
 

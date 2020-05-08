@@ -32,6 +32,10 @@
         width: 100%;
         cursor: pointer;
 
+        a {
+            color: inherit;
+        }
+
         @media (min-width: 768px) {            
             width: 40vw;
         }
