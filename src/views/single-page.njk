@@ -8,8 +8,8 @@
 <section id="single">  
   <section class="probootstrap-section-half d-flex probootstrap-no-hover">
     {# BEGIN Featured Image #}
-    <div class="probootstrap-image" style="background-color: {{colors[current]}};">
-      <div class="single__slideshow absolute-center">
+    <div class="probootstrap-image d-flex flex-column justify-content-center align-items-center pt-8" style="background-color: {{colors[current]}};">
+      <div class="single__slideshow">
         <div class="swiper-wrapper">
           {% for i in range(0, pkg.imgs) -%}
             <div class="swiper-slide">
@@ -22,14 +22,8 @@
           {%- endfor %}
         </div>
       </div>
-      <div class="dropdown">
-        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown">Test</button>
-        <div class="dropdown-menu">
-          <a href="#" class="dropdown-item">Item</a>
-          <a href="#" class="dropdown-item">Item</a>
-          <a href="#" class="dropdown-item">Item</a>
-        </div>
-      </div>
+
+      {% include 'components/single-action.njk' %}
     </div>
     {# END Featured Image #}
 
