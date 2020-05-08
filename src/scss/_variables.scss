@@ -1,0 +1,42 @@
+// Import font(s) from google.
+
+@mixin inline-block() {
+	display:inline-block;
+  *display:inline;
+  zoom:1;
+}
+
+// Variables
+$lang-colors: (
+	java: #b07219,
+	js: #f1e05a,
+	wordpress: #187aa2,
+	c: #555555,
+	csharp: #178600
+);
+
+// Bootstrap variables
+$grid-breakpoints: (
+  xs: 0,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px
+);
+
+$primary: #22eaaa;
+$secondary: #ddf0f3;
+
+$font-family-sans-serif: 'Open Sans', sans-serif;
+
+$paragraph-margin-bottom: 1.3em;
+
+$line-height-base: 1.2;
+$h1-font-size: 1.602em;
+$h2-font-size: 1.424em;
+$h3-font-size: 1.266em;
+$h4-font-size: 1.125em;
+$small-font-size: 0.889em;
+
+$spacer: 1rem;
+
+$spacers: (6: ($spacer * 3.75), 7: ($spacer * 4.375), 8: ($spacer * 5));
