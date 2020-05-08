@@ -13,11 +13,42 @@
             "version": "1.0",
             "platforms": ["android"],
             "languages": ["java"],
+            "imgs": 3,
             "flags": ["inDev", "portfolioPhone"],
-            "buttons": {
-                "url": "https://play.google.com/store/apps/details?id=com.gk.medidores",
-                "repoUrl": "https://github.com/geekzolanos/android-power-measure"
-            }
+            "features": [
+                {
+                    "iconClass": "icon-pencil2",
+                    "title": "Capture localmente",
+                    "description": "Registre y almacene. Utilize como fundacion para el desarrollo de caracteristicas de integracion a la medida de sus requerimientos."
+                },
+                {
+                    "iconClass": "icon-location",
+                    "title": "Registro de ubicacion",
+                    "description": "Capture coordenadas desde su ubicacion con facilidad. Los datos obtenidos son presentados al usuario a traves de la integracion directa con Google Maps."
+                },
+                {
+                    "iconClass": "icon-camera",
+                    "title": "Imagen de referencia",
+                    "description": "Asocie su medicion con una fotografia, de forma opcional, le sera asignado un color aleatorio con el fin de distinguir los registros en el servicio."
+                },
+                {
+                    "iconClass": "icon-star-full",
+                    "title": "Facil de usar",
+                    "description": "Navegue a traves de una interfaz simple e intuitiva, con integracion de librerias de soporte actualizadas y lista para su uso como fundacion de futuras soluciones."
+                }
+            ],
+            "actions": [
+                {
+                    "iconClass": "icon-android",
+                    "name": "Ver en Google Play",
+                    "url": "https://play.google.com/store/apps/details?id=com.gk.medidores"
+                },
+                {
+                    "iconClass": "icon-github",
+                    "name": "Ver en GitHub",
+                    "url": "https://github.com/geekzolanos/android-power-measure"
+                }
+            ]
         },
         "com.geekzolanos.agile": {
             "name": "Agile Launcher",
@@ -27,10 +58,42 @@
             "version": "1.3",
             "platforms": ["android"],
             "languages": ["java"],
+            "imgs": 3,
             "flags": ["portfolioPhone"],
-            "buttons": {
-                "url": "https://play.google.com/store/apps/details?id=com.geekzolanos.agile"
-            }
+            "features": [
+                {
+                    "iconClass": "icon-star-full",
+                    "title": "Facil de usar",
+                    "description": "Con una interfaz distintiva. Agile Launcher resulta sencillo de utilizar, sin curvas de aprendizaje o tutoriales complejos. Podra hacer uso de todo su potencial desde el primer inicio."
+                },
+                {
+                    "iconClass": "icon-leaf",
+                    "title": "Ligero",
+                    "description": "El lanzador a sido desarrollado bajo un enfoque orientado al soporte de retro compatibilidad. Gracias a ello, su funcionamiento ha sido probado con exito en dispositivos Android 4.x con un minimo de 256 MB."
+                },
+                {
+                    "iconClass": "icon-accessibility",
+                    "title": "Intuitivo",
+                    "description": "Establezca gestos para iniciar aplicaciones sin recorrer listas, ancle aplicaciones al acceso rapido, acceda rapidamente a la configuracion de su dispositivo y personalize su dispositivo a la medida."
+                },
+                {
+                    "iconClass": "icon-search",
+                    "title": "Informacion al alcance",
+                    "description": "Obtenga informacion inmediata acerca del clima, hora y fecha de su region. Acceda rapidamente a informacion avanzada asociada con sus aplicaciones instaladas, sin complejos procedimientos."
+                }
+            ],
+            "actions": [
+                {
+                    "iconClass": "icon-android",
+                    "name": "Ver en Google Play",
+                    "url": "https://play.google.com/store/apps/details?id=com.geekzolanos.agile"
+                },
+                {
+                    "iconClass": "icon-github",
+                    "name": "Ver en GitHub",
+                    "url": "#"
+                }
+            ]
         },
         "com.geekzolanos.gedcom": {
             "name": "Gedcom Converter",
@@ -40,11 +103,42 @@
             "version": "1.2.0",
             "platforms": ["win"],
             "languages": ["js"],
+            "imgs": 4,
             "flags": ["hasFeaturedFrame"],
-            "buttons": {
-                "url": "#",
-                "repoUrl": "https://github.com/geekzolanos/gedcom-converter"
-            }
+            "features": [
+                {
+                    "iconClass": "icon-power",
+                    "title": "Rapido",
+                    "description": "Convierta archivos GEDCOM grandes de forma rapida y sencilla, con excelente soporte de contenido y facil personalizacion."
+                },
+                {
+                    "iconClass": "icon-laptop",
+                    "title": "Multiplataforma",
+                    "description": "Desarrollada bajo el popular Framework multiplataforma Electron. Gedcom Converter puede ser portado con facilidad a los sistemas operativos de mayor popularidad en el mercado."
+                },
+                {
+                    "iconClass": "icon-paint-format",
+                    "title": "Personalizable",
+                    "description": "Agregue un indice de contenido, modifique la plantilla utilizada para la generacion de contenido y personalize los resultados a la medida de sus requerimientos."
+                },
+                {
+                    "iconClass": "icon-make-group",
+                    "title": "Soporte de Google Adsense",
+                    "description": "Sin necesidad de conocimientos tecnicos, unicamente especifique el Snippet proporcionado por el servicio y sera integrado de forma automatica para usted."
+                }
+            ],
+            "actions": [
+                {
+                    "iconClass": "icon-download2",
+                    "name": "Descargar (Win)",
+                    "url": "#"
+                },
+                {
+                    "iconClass": "icon-github",
+                    "name": "Ver en GitHub",
+                    "url": "https://github.com/geekzolanos/gedcom-converter"
+                }
+            ]
         },
         "org.umaven.web": {
             "name": "UMAVEN",
@@ -54,10 +148,42 @@
             "version": "Oficial",
             "platforms": ["web"],
             "languages": ["wordpress"],
+            "imgs": 1,
             "flags": ["hasFeaturedFrame"],
-            "buttons": {
-                "url": "http://www.1manoparavenezuelayelmundo.org"
-            }
+            "features": [
+                {
+                    "iconClass": "icon-mobile2",
+                    "title": "Optimizado para moviles",
+                    "description": "Diseño responsive, compatible, optimizado para dispositivos de gama media o superiores."
+                },
+                {
+                    "iconClass": "icon-cart",
+                    "title": "Tienda virtual",
+                    "description": "Acceda a una tienda virtual, donde podra adquirir productos de excelente calidad y asi aportar tu grano de arena por nuestra causa."
+                },
+                {
+                    "iconClass": "icon-cog",
+                    "title": "Gestion completa",
+                    "description": "Asesoria e implementacion de CMS para la gestion por parte del equipo de trabajo. Actualizacion automatica y notificaciones de seguridad."
+                },
+                {
+                    "iconClass": "icon-power",
+                    "title": "Carga rapida",
+                    "description": "Recursos optimizados para una carga optimizada del sitio, proporcionando una experiancia agradable al usuario final."
+                },
+                {
+                    "iconClass": "icon-newspaper",
+                    "title": "Completo, Informativo",
+                    "description": "Conozca la ultima informacion asociada con la fundacion: Eventos, novedades, estatutos, informacion del equipo y mas."
+                }
+            ],
+            "actions": [
+                {
+                    "iconClass": "icon-share",
+                    "name": "Ver sitio web",
+                    "url": "http://www.1manoparavenezuelayelmundo.org"
+                }
+            ]
         },
         "com.gk.aotf": {
             "name": "Android Para AOTF",
@@ -67,9 +193,42 @@
             "version": "3.0",
             "platforms": ["android"],
             "languages": ["c", "java"],
-            "buttons": {
-                "url": "https://geekzolanos.wordpress.com/2014/09/24/android-para-alcatel-one-touch-fire-v3-post-oficial/"
-            }
+            "imgs": 3,
+            "features": [
+                {
+                    "iconClass": "icon-android",
+                    "title": "Soporte de Android 4.0",
+                    "description": "Basado en el codigo fuente disponible en los repositorios de CodeAurora, el sistema opera bajo la version de Android 4.0 (Ice Cream Sandwich)"
+                },
+                {
+                    "iconClass": "icon-rocket",
+                    "title": "Arranque multiple",
+                    "description": "Alterne con facilidad entre Firefox OS y Android en su dispositivo, alternando mediante la opcion integrada desde su lanzador."
+                },
+                {
+                    "iconClass": "icon-shield",
+                    "title": "Instalacion segura",
+                    "description": "Gracias al diseño del dispositivo y su SoC, puede realizar la instalacion de la ROM sin preocuparse por un Brick permanente del dispositivo."
+                },
+                {
+                    "iconClass": "icon-power",
+                    "title": "Overclocking",
+                    "description": "Aplique overclocking en su dispositivo hasta de 1.4 GHz para su uso en aplicaciones que requieran potencia adicional."
+                },
+                {
+                    "iconClass": "icon-floppy-disk",
+                    "title": "Memoria Virtual",
+                    "description": "Expanda la memoria del dispositivo mediante el uso de Memoria Swap en el almacenamiento, o bien, memoria MicroSD, y mejore su experiencia de uso general."
+                }
+
+            ],
+            "actions": [
+                {
+                    "iconClass": "icon-share",
+                    "name": "Ver articulo",
+                    "url": "https://geekzolanos.wordpress.com/2014/09/24/android-para-alcatel-one-touch-fire-v3-post-oficial/"
+                }
+            ]
         },
         "com.gk.speedgps": {
             "name": "SpeedGPS",
@@ -79,11 +238,42 @@
             "version": "2.2.1",
             "platforms": ["web", "android"],
             "languages": ["js", "java"],
+            "imgs": 3,
             "flags": ["portfolioPhone"],
-            "buttons": {
-                "url": "https://geekzolanos.github.io/webapps/speedgps/",
-                "repoUrl": "https://github.com/geekzolanos/speedgps-webapp/"
-            }
+            "features": [
+                {
+                    "iconClass": "icon-tablet",
+                    "title": "Multiplataforma",
+                    "description": "Portado con soporte de Apache Cordoba como PWA, puede ser utilizada desde su navegador, como aplicacion de escritorio o dispositivo movil y mas."
+                },
+                {
+                    "iconClass": "icon-accessibility",
+                    "title": "Facil de usar",
+                    "description": "Con una interfaz agradable y rapida, SpeedGPS proporciona al usuario del punto de partida ideal para acceder a todas sus funcionalidades. "
+                },
+                {
+                    "iconClass": "icon-paint-format",
+                    "title": "Personalizable",
+                    "description": "Especifique unidades de conversion, habilite efectos de sonido, notificaciones y vibracion conforme a su necesidad."
+                },
+                {
+                    "iconClass": "icon-newspaper",
+                    "title": "Informacion completa",
+                    "description": "Acceda a toda la informacion disponible desde los servicios de Geolocalizacion en su dispositivo, en tiempo real, y en formato legible."
+                }
+            ],
+            "actions": [
+                {
+                    "iconClass": "icon-sphere",
+                    "name": "Ir a la aplicacion",
+                    "url": "https://geekzolanos.github.io/webapps/speedgps/"
+                },
+                {
+                    "iconClass": "icon-github",
+                    "name": "Ver en GitHub",
+                    "url": "https://github.com/geekzolanos/speedgps-webapp/"
+                }
+            ]
         },
         "org.ateneo.hdri": {
             "name": "Ateneo de Punto Fijo",
@@ -93,10 +283,42 @@
             "version": "Oficial",
             "platforms": ["web", "unity3d"],
             "languages": ["csharp"],
+            "imgs": 4,
             "flags": ["hasFeaturedFrame"],
-            "buttons": {
-                "url": "https://ateneopf.netlify.com/"
-            }
+            "features": [
+                {
+                    "iconClass": "icon-office",
+                    "title": "Acceda a las instalaciones",
+                    "description": "Se han recreado los ambientes con el objetivo de proporcionarle la experiencia mas completa posible. Navegue por el edificio principal, el Teatro, e incluso espacios tales como el estacionamiento y jardin posterior."
+                },
+                {
+                    "iconClass": "icon-compass",
+                    "title": "Interactivo",
+                    "description": "Obtenga informacion en cada etapa del paseo, interactue con pinturas distribuidas en las instalaciones, obtenga una experiencia agradable con efectos de sonido y mas."
+                },
+                {
+                    "iconClass": "icon-sphere",
+                    "title": "Soporte de WebGL",
+                    "description": "Gracias al desarrollo bajo el popular motor Unity3D, podra disfrutar de la experiencia mediante la comodidad de su navegador."
+                },
+                {
+                    "iconClass": "icon-laptop",
+                    "title": "Soporte para PC's de gama baja",
+                    "description": "El funcionamiento del paso ha sido probado en Laptops y PC's de gama baja, asegurando una experiencia agradable para el usuario final."
+                }
+            ],
+            "actions": [
+                {
+                    "iconClass": "icon-sphere",
+                    "name": "Ir al sitio web",
+                    "url": "https://ateneopf.netlify.com/"
+                },
+                {
+                    "iconClass": "icon-github",
+                    "name": "Ver en GitHub",
+                    "url": "#"
+                }
+            ]
         }
     },
     "platforms": {
