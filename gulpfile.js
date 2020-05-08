@@ -1,75 +1,93 @@
-/* Needed gulp config */
+const fs = require('fs'),
+      gulp = require('gulp'),
+      sass = require('gulp-sass'),
+      uglify = require('gulp-uglify'),
+      rename = require('gulp-rename'),
+      cleanCSS = require('gulp-clean-css'),
+      concat = require('gulp-concat'),
+      plumber = require('gulp-plumber'),
+      nunjucksRender = require('gulp-nunjucks-render'),
+      data = require('gulp-data'),
+      browserSync = require('browser-sync'),
+      reload = browserSync.reload,
+      sourcemaps = require('gulp-sourcemaps'),
+      autoprefixer = require('gulp-autoprefixer'),
+      del = require('del'),
+      mergeStream = require('merge-stream'),
+      parseColors = require('./src/js/build/parseColors');
 
-var fs = require('fs');
-var gulp = require('gulp');  
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
-var cleanCSS = require('gulp-clean-css');
-var concat = require('gulp-concat');
-var plumber = require('gulp-plumber');
-var nunjucksRender = require('gulp-nunjucks-render');
-var data = require('gulp-data');
-var browserSync = require('browser-sync');
-var reload = browserSync.reload;
-const sourcemaps = require('gulp-sourcemaps');
-const autoprefixer = require('gulp-autoprefixer');
-const del = require('del');
-const parseColors = require('./src/js/parseColors');
-
-let payload = {};
-
-/* vendor-js task */
-gulp.task('vendor-js', function() {
-  return gulp.src([
+const LIBS_VENDOR = [
     /* Add your JS files here, they will be combined in this order */
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/jquery-easing/jquery.easing.1.3.js',
     'node_modules/jquery-countto/jquery.countTo.js',
     'node_modules/jquery.appear/jquery.appear.js',
-    'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
     'node_modules/popper.js/dist/umd/popper.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
     'node_modules/muuri/dist/muuri.min.js',
     'node_modules/vanilla-lazyload/dist/lazyload.min.js',
     'node_modules/aos/dist/aos.js',
     'node_modules/slim-select/dist/slimselect.min.js',
-    'src/js/lodash.debounce.min.js'
-    ])
+    'node_modules/swiper/js/swiper.min.js',
+    'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
+    'src/js/vendor/lodash.debounce.min.js'
+];
+
+// CSS Files not mergeable using @import scss directive
+const CSS_VENDOR = [
+    'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css'
+];
+
+let payload = {};
+
+function vendorJs() {
+  return gulp.src(LIBS_VENDOR)
     .pipe(concat('vendor.js'))
     .pipe(rename({suffix: '.min'}))
     //.pipe(uglify())
     .pipe(gulp.dest('build/scripts'));
-});
+}
 
 gulp.task('js', function() {
-  return gulp.src(['src/js/main.js', 'src/js/custom.js'])
+  return gulp.src(['src/js/main.js'])
     .pipe(rename({suffix: '.min'}))
     //.pipe(uglify())
     .pipe(gulp.dest('build/scripts'));
 });
 
 /* Sass task */
-gulp.task('sass', function () {  
-    return gulp.src(['src/scss/vendor.scss', 'src/scss/main.scss'])
+function styles() { 
+    return gulp.src('src/scss/main.scss')
         .pipe(plumber())
         .pipe(sass({
             errLogToConsole: true,
-
-            //outputStyle: 'compressed',
+            // outputStyle: 'compressed',
             // outputStyle: 'compact',
             // outputStyle: 'nested',
             outputStyle: 'expanded',
             precision: 10
         }))
         .pipe(sourcemaps.init())
-        .pipe(autoprefixer())
+        .pipe(autoprefixer())        
         .pipe(rename({suffix: '.min'}))
         //.pipe(cleanCSS())
         .pipe(gulp.dest('build/style'))
         /* Reload the browser CSS after every change */
         .pipe(reload({stream:true}));
-});
+}
+
+function vendorStyles() {
+    const sassStyles = gulp.src('src/scss/vendor.scss')
+        .pipe(sass({
+            outputStyle: 'compact',
+            errLogToConsole: true,
+            precision: 10
+        }));
+
+    return mergeStream(gulp.src(CSS_VENDOR), sassStyles)
+        .pipe(concat('vendor.min.css'))
+        .pipe(gulp.dest('build/style'));
+}
 
 const setupPayload = async () => {
     payload = JSON.parse(fs.readFileSync('src/data.json'));
@@ -89,7 +107,7 @@ const manageEnvironment = (env) => {
 };
 
 gulp.task('html', function() { 
-    return gulp.src('src/views/*.njk')
+    return gulp.src(['src/views/*.njk', '!src/views/single-page.njk'])
         .pipe(data(payload))
         .pipe(nunjucksRender({
             path: ['src/views'],
@@ -97,6 +115,23 @@ gulp.task('html', function() {
         }))
         .pipe(gulp.dest('build'));
 });
+
+function parsePackagePage(pkg) {
+    const pl = { current: pkg, ...payload };
+
+    return gulp.src('src/views/single-page.njk')
+        .pipe(data(pl))
+        .pipe(nunjucksRender({
+            path: ['src/views'],
+            manageEnv: manageEnvironment
+        }))
+        .pipe(rename({basename: pkg}))
+        .pipe(gulp.dest('build/packages'));
+}
+
+function packagesHtml() {
+    return mergeStream(Object.keys(payload.packages).map(parsePackagePage));
+}
 
 /* Reload task */
 gulp.task('bs-reload', function (done) {
@@ -115,11 +150,11 @@ gulp.task('browser-sync', function() {
 
 gulp.task('watch', function() {
     /* Watch scss, run the sass task on change. */
-    gulp.watch(['src/scss/*.scss', 'src/scss/**/*.scss'], gulp.series('sass', 'bs-reload'));
+    gulp.watch(['src/scss/*.scss', '!src/scss/vendor.scss', 'src/scss/**/*.scss'], gulp.series(styles, 'bs-reload'));
     /* Watch app.js file, run the vendor-js task on change. */
     gulp.watch(['src/js/main.js'], gulp.series('js', 'bs-reload'));
     /* Watch .html files, run the bs-reload task on change. */
-    gulp.watch(['src/views/*.njk', 'src/views/**/*.njk'], gulp.series('html', 'bs-reload'));
+    gulp.watch(['src/views/*.njk', 'src/views/**/*.njk'], gulp.series('html', packagesHtml, 'bs-reload'));
 });
 
 function clean() {
@@ -130,6 +165,6 @@ function clean() {
 gulp.task('default', gulp.series(
     clean,
     setupPayload,
-    gulp.parallel('html', 'sass', 'vendor-js', 'js'), 
+    gulp.parallel('html', packagesHtml, vendorStyles, styles, vendorJs, 'js'), 
     gulp.parallel('browser-sync', 'watch')
 ));
