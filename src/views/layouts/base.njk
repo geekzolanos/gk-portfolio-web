@@ -11,36 +11,27 @@
     <link rel="stylesheet" href="/style/vendor.min.css">
     <link rel="stylesheet" href="/style/main.min.css">    
 
-    <!--[if lt IE 9]>
-      <script src="js/vendor/html5shiv.min.js"></script>
-      <script src="js/vendor/respond.min.js"></script>
-    <![endif]-->
+    <script src="/scripts/vendor.min.js"></script>
+    <script src="/scripts/main.min.js" defer></script>
   </head>
-  <body>
+  <body>    
+    <div id="probootstrap-loader" data-turbolinks-permanent></div>
+      
+    <!-- START: header -->
+    {% include "components/header.njk" %}
+    <!-- END: header -->
 
-    
-  <div class="probootstrap-loader"></div>
-    
-  <!-- START: header -->
-  {% include "components/header.njk" %}
-  <!-- END: header -->
+    <div class="probootstrap-main">
+      {% block content %} {% endblock %}
+    </div>
 
-  <div class="probootstrap-main">
-    {% block content %} {% endblock %}
-  </div>
-
-  <!-- START: footer  -->
-  {% include "components/footer.njk" %}
-  <!-- END: footer -->
+    <!-- START: footer  -->
+    {% include "components/footer.njk" %}
+    <!-- END: footer -->
 
 
-  <div class="gototop js-top">
-    <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
-  </div>
-  
-
-  <script src="/scripts/vendor.min.js"></script>
-  <script src="/scripts/main.min.js"></script>
-
+    <div class="gototop js-top">
+      <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
+    </div>
   </body>
 </html>

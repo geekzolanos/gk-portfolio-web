@@ -18,10 +18,11 @@ const fs = require('fs'),
 
 const LIBS_VENDOR = [
     /* Add your JS files here, they will be combined in this order */
+    'node_modules/turbolinks/dist/turbolinks.js',
+    'node_modules/turbolinks-animate/src/index.js',
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/jquery-easing/jquery.easing.1.3.js',
     'node_modules/jquery-countto/jquery.countTo.js',
-    'node_modules/jquery.appear/jquery.appear.js',
     'node_modules/popper.js/dist/umd/popper.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
     'node_modules/muuri/dist/muuri.min.js',
@@ -144,6 +145,12 @@ gulp.task('browser-sync', function() {
     browserSync.init({
         server: {
             baseDir: ["build", 'src']
+        },
+        snippetOptions: {
+            rule: {
+                match: /<\/head>/i,
+                fn: (snippet, match) => snippet + match
+            }
         }
     });
 });

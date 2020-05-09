@@ -19,7 +19,30 @@
 
 	/*----------------------------------------
 		Burger Menu
-	----------------------------------------*/	
+	----------------------------------------*/
+	const earlymobileMenuControl = function() {
+		$(window).resize(function(){
+			if ($(window).width() > 766) {
+				$('body').removeClass('probootstrap-mobile-menu-active');
+				$('.probootstrap-burger-menu').removeClass('active');
+			} else {
+				$('body').addClass('probootstrap-mobile-menu-active');
+			}
+		});
+
+		// Click outside of the Mobile Menu content
+		$(document).click(function (e) {
+			var container = $(".probootstrap-nav, .probootstrap-burger-menu");
+			
+			if (!container.is(e.target) && container.has(e.target).length === 0) {
+			if ( $('body').hasClass('show') ) {
+						$('body').removeClass('show');
+						$('.probootstrap-burger-menu').removeClass('active');
+					}
+			}
+		});
+	}
+	
 	const mobileMenuControl = function() {
 		// click burger menu
 		$('.probootstrap-burger-menu').on('click', function(e){
@@ -38,28 +61,7 @@
 			$('.probootstrap-burger-menu').removeClass('active');
 		} else {
 			$('body').addClass('probootstrap-mobile-menu-active');
-		}
-
-		$(window).resize(function(){
-			if ($(window).width() > 766) {
-				$('body').removeClass('probootstrap-mobile-menu-active');
-				$('.probootstrap-burger-menu').removeClass('active');
-			} else {
-				$('body').addClass('probootstrap-mobile-menu-active');
-			}
-		});
-
-		// Click outside of the Mobile Menu content
-		$(document).click(function (e) {
-	    var container = $(".probootstrap-nav, .probootstrap-burger-menu");
-	    
-	    if (!container.is(e.target) && container.has(e.target).length === 0) {
-	      if ( $('body').hasClass('show') ) {
-					$('body').removeClass('show');
-					$('.probootstrap-burger-menu').removeClass('active');
-				}
-	    }
-		});
+		}		
 	};
 
 	/*----------------------------------------
@@ -110,7 +112,7 @@
 		Hide Preload
 	----------------------------------------*/
 	const loaderPage = function() {
-		$(".probootstrap-loader").fadeOut("slow");
+		$("#probootstrap-loader").fadeOut("slow");
 	};
 
 	/*----------------------------------------
@@ -287,7 +289,7 @@
 		Animate On Scroll
 	----------------------------------------*/
 	const initAos = function() {
-		AOS.init({ 
+		AOS.init({
 			disableMutationObserver: true,
 			once: true,
 			duration: 650
@@ -315,25 +317,35 @@
 			animationEffect: "zoom",
 			arrows: false,
 			infobar: false,
-			toolbar: false
+			toolbar: false,
+			hash: false
 		});
 	}
 
 	/*----------------------------------------
 		Document Ready 
 	----------------------------------------*/
-	$(document).ready(function(){
+	function init() {
 		counter();
 		portfolioGrid();
 		lazyload();
 		bsTooltips();
-		initAos();
 		backToTop();
 		mobileMenuControl();
-		loaderPage();
 		goToTop();
 		inlineSVG();
 		swiper();
 		fancybox();
-	});
+		initAos();
+		TurbolinksAnimate.init();
+	}
+
+	function earlyInit() {
+		Turbolinks.start();
+		earlymobileMenuControl();
+		loaderPage();
+	}
+
+	$(document).on('turbolinks:load', init);
+	$(document).ready(earlyInit);
 })();
