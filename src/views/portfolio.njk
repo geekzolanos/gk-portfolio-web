@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <section class="probootstrap-section-half d-flex">
+  <section class="probootstrap-section-half d-flex flex-wrap">
     <div class="probootstrap-image probootstrap-animate" data-animate-effect="fadeIn" style="background-image: url(img/image_1.jpg)"></div>
     <div class="probootstrap-text d-flex">
       <div class="probootstrap-inner probootstrap-animate">
@@ -21,12 +21,12 @@
     <p>Consulte a continuacion el catalogo de proyectos creados.</p>
   </div>
 
-  <div id="portfolio--filters" class="row justify-content-center w-75 mx-auto my-5">
-    <div class="col-3">
+  <div id="portfolio--filters" class="row row-cols-md-4 row-cols-1 justify-content-center w-75 mx-auto my-5">
+    <div class="col">
       <input id="search-input" type="text" class="form-control" placeholder="Buscar...">
     </div>
 
-    <div class="col-3">
+    <div class="col">
       <select id="portfolio-plt" multiple>
         <option data-placeholder="true">Plataformas (Todas)</option>
         {% for key, meta in platforms -%}
@@ -35,7 +35,7 @@
       </select>
     </div>
 
-    <div class="col-3">
+    <div class="col">
       <select id="portfolio-lang" multiple>
         <option data-placeholder="true">Lenguajes (Todos)</option>
         {% for key, name in languages -%}
@@ -44,7 +44,7 @@
       </select>
     </div>  
 
-    <div class="col-3">
+    <div class="col">
       <select id="portfolio-filter">
         <option value="0" selected>Fecha de subida (Mas reciente)</option>
         <option value="1">Fecha de subida (Mas antiguo)</option>

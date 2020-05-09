@@ -6,9 +6,9 @@
 
 {% block content %}
 <section id="single">  
-  <section class="probootstrap-section-half d-flex probootstrap-no-hover">
+  <section class="probootstrap-section-half d-flex flex-wrap probootstrap-no-hover">
     {# BEGIN Featured Image #}
-    <div class="probootstrap-image d-flex flex-column justify-content-center align-items-center pt-8" style="background-color: {{colors[current]}};">
+    <div class="probootstrap-image d-flex flex-column justify-content-center align-items-center pt-9 pb-5" style="background-color: {{colors[current]}};">
       <div class="single__slideshow">
         <div class="swiper-wrapper">
           {% for i in range(0, pkg.imgs) -%}
@@ -64,9 +64,9 @@
     {# END Featured Content #}
   </section>
 
-  <section class="probootstrap-section">
+  <section class="probootstrap-section px-4">
     <div class="container">
-      <div class="row row-cols-3">        
+      <div class="row row-cols-md-3 row-cols-1">        
         <div class="col align-self-center">
           <h1 class="features__heading">Caracteristicas</h1>
         </div>
