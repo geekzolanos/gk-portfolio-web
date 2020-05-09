@@ -1,3 +1,10 @@
+$item-tr-easing: cubic-bezier(0.25, 1, 0.5, 1);
+$item-tr-duration: .6;
+
+$item-tr-dsmall: $item-tr-duration * 0.34;
+$item-tr-dlarge: $item-tr-duration * 1.12;
+
+
 #portfolio--header:before {
     content: '';
     display: block;
@@ -10,7 +17,8 @@
 #portfolio--filters {
     #search-input {
         width: 98%;
-        transition: border-color .3s ease-out, box-shadow .3s ease-out, width .3s ease-out;
+        transition: border-color .3s, box-shadow .3s, width .3s;
+        transition-timing-function: ease-out;
         
         &:focus {
             width: 105%;
@@ -36,7 +44,7 @@
             color: inherit;
         }
 
-        @media (min-width: 768px) {            
+        @media (min-width: 768px) {
             width: 40vw;
         }
 
@@ -76,11 +84,13 @@
             .meta--content {
                 opacity: 1;
                 transition-delay: .3s;
+                transition-timing-function: $item-tr-easing;
             }
 
             .meta--attrs:after {                
                 transform: scale(1);
                 transition-delay: .3s;
+                transition-timing-function: $item-tr-easing;
             }
         }
     }
@@ -94,7 +104,8 @@
         img {
             transform: scale(1.1);
             width: 100%;
-            transition: filter .45s ease-out, transform .45s ease-out;
+            transition: filter #{$item-tr-duration}s, transform #{$item-tr-duration}s;
+            transition-timing-function: $item-tr-easing;
             will-change: transform, filter;
         }
     }
@@ -107,7 +118,7 @@
         bottom: 0;
         padding: 1rem;
         z-index: 10;
-        transition: background-color .45s ease-out;
+        transition: background-color #{$item-tr-duration}s ease-out;
         will-change: background-color;
 
         .meta--inner {
@@ -133,7 +144,7 @@
             width: 100%;
             opacity: 0;
             font-size: .85em;
-            transition: opacity .45s ease-out;
+            transition: opacity #{$item-tr-duration}s ease-out;
             will-change: opacity;
         }
 
@@ -141,7 +152,8 @@
             position: absolute;
             bottom: 0;
             width: 100%;
-            transition: transform .45s ease-out;
+            transition: transform #{$item-tr-duration}s;
+            transition-timing-function: $item-tr-easing;
             will-change: transform;
 
             h2 {
@@ -155,7 +167,8 @@
                 color: white;
                 font-size: .8em;
                 white-space: nowrap;
-                transition: transform .45s ease-out, background-color .15s ease-out;
+                transition: transform #{$item-tr-duration}s, background-color #{$item-tr-dsmall}s;
+                transition-timing-function: $item-tr-easing;
                 will-change: transform, background-color;
             }
         }
@@ -173,7 +186,7 @@
                 height: 2px;
                 background-color: rgba(255,255,255,0.4);
                 transform: scale(0.45);
-                transition: transform .5s ease-out;
+                transition: transform #{$item-tr-dlarge}s ease-out;
                 will-change: transform;
             }
 
