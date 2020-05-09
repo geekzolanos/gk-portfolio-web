@@ -37,7 +37,9 @@ h1 {
     margin-top: 0;
 }
 
-ul, ol, figure {
+ul,
+ol,
+figure {
     margin-bottom: $paragraph-margin-bottom;
 }
 
@@ -379,6 +381,12 @@ a {
     }
 }
 
+.probootstrap-main .probootstrap-section-half:first-child .probootstrap-image {
+    @include media-breakpoint-down('sm') {
+        min-height: 400px;
+        height: inherit;
+    }
+}
 
 .probootstrap-section-half {
     &:last-child {
@@ -597,6 +605,61 @@ a {
             text-decoration: none;
             outline: none;
             background: rgba(0, 0, 0, .9);
+        }
+    }
+}
+
+.btn-outline-primary:hover {
+    color: white;
+}
+
+.probootstrap-main .btn {
+    border: none;
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    transition: .3s all ease-in;
+
+    &:focus,
+    &:active {
+        box-shadow: none;
+    }
+
+    &.btn-sm {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 13px;
+    }
+
+    &.btn-lg {
+        line-height: 1.5;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    &.btn-primary {
+        border: 2px solid $primary;
+        background: $primary;
+        color: $white;
+
+        &:hover,
+        &:active,
+        &:focus {
+            background: lighten($primary, 5%);
+            color: $white;
+            border: 2px solid lighten($primary, 5%);
+        }
+
+        &:focus,
+        &:active {
+            outline: none;
+            border: 2px solid lighten($primary, 5%);
         }
     }
 }

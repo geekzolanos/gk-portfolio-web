@@ -37,6 +37,8 @@ $h3-font-size: 1.266em;
 $h4-font-size: 1.125em;
 $small-font-size: 0.889em;
 
+$input-height-border: 10px;
+
 $spacer: 1rem;
 
-$spacers: (6: ($spacer * 3.75), 7: ($spacer * 4.375), 8: ($spacer * 5));
+$spacers: (6: ($spacer * 3.75), 7: ($spacer * 4.375), 8: ($spacer * 5), 9: ($spacer * 8));
