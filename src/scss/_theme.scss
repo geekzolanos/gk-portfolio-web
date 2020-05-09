@@ -381,10 +381,14 @@ a {
     }
 }
 
-.probootstrap-main .probootstrap-section-half:first-child .probootstrap-image {
+.probootstrap-main .probootstrap-section-half {
     @include media-breakpoint-down('sm') {
-        min-height: 400px;
-        height: inherit;
+        flex-wrap: wrap;
+        
+        .probootstrap-image {
+            min-height: 400px;
+            height: inherit;
+        }
     }
 }
 
@@ -430,6 +434,10 @@ a {
         .img-container.feat-frame img {
             box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
             border-radius: 12px;
+        }
+
+        &[data-aos="fade-in"] {
+            transition-property: opacity, transform, width !important;
         }
     }
 

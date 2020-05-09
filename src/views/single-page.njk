@@ -6,7 +6,7 @@
 
 {% block content %}
 <section id="single">  
-  <section class="probootstrap-section-half d-flex flex-wrap probootstrap-no-hover">
+  <section class="probootstrap-section-half d-flex probootstrap-no-hover">
     {# BEGIN Featured Image #}
     <div class="probootstrap-image d-flex flex-column justify-content-center align-items-center pt-9 pb-5" style="background-color: {{colors[current]}};">
       <div class="single__slideshow">
@@ -14,7 +14,7 @@
           {% for i in range(0, pkg.imgs) -%}
             <div class="swiper-slide">
               <div class="slide__container img-container {{'feat-frame' if pkg.flags and 'hasFeaturedFrame' in pkg.flags}}">
-                <a href="/img/packages/{{current}}/{{i}}.webp" data-fancybox="slideshow">
+                <a href="/img/packages/{{current}}/{{i}}.webp" data-fancybox="slideshow" data-turbolinks="false">
                   <img data-lazyload="true" data-src="/img/packages/{{current}}/{{i}}.webp" />
                 </a>
               </div>

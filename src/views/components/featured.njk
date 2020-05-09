@@ -3,7 +3,7 @@
 {% set color = colors[pkgKey] %}
 {% set isOdd = loop.index % 2 == 0 %}
 
-<section class="featured probootstrap-section-half d-flex flex-wrap {{ 'probootstrap-reverse' if isOdd }}">
+<section class="featured probootstrap-section-half d-flex {{ 'probootstrap-reverse' if isOdd }}">
     {# BEGIN Featured Image #}
     <div class="probootstrap-image" data-animate-effect="fadeIn" style="background-color: {{color}}">
         <div class="img-container absolute-center {{'feat-frame' if pkg.flags and 'hasFeaturedFrame' in pkg.flags}}">
