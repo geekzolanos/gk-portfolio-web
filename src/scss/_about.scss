@@ -1,0 +1,44 @@
+.skills__slideshow {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .swiper-wrapper {
+        height: 30rem;
+    }
+
+    .skill__card {
+        border-radius: 1rem;
+
+        ul {
+            li {
+                margin-bottom: .5rem;
+                font-size: .85em;
+            }
+
+            list-style-image: url('/img/bullet.png');
+        }
+    }
+}
+
+.skills__container > .row {
+    background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+}
+
+.skills__container h1 {
+    font-size: 2.4em;
+
+    &:after {
+        content: '';
+        background-color: $white;
+        height: 3px;
+        display: block;
+        width: 25%;
+        margin-top: 8px;
+        margin-left: 4px;
+    }
+}
+
+.font-small {
+    font-size: 0.85em;
+}
