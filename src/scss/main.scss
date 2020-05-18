@@ -1,14 +1,28 @@
+// Variables
 @import 'variables';
 
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Poppins:wght@700;800;900&display=swap');
+
+// Bootstrap
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/mixins";
 
-@import "theme";
+// Theme
+@import 'typo';
+@import 'nav';
+@import 'section';
+
+// Pages
+@import 'about';
 @import "portfolio";
 @import "featured";
 @import "single";
 
+/**
+ * Helpers
+ */
 .absolute-center {
     position: absolute;
     top: 50%;
@@ -16,8 +30,15 @@
     transform: translate(-50%, -50%);
 }
 
-.meta--lang,
-.meta--platforms {
+.list-style-none {
+    list-style: none;
+}
+
+/**
+ * Meta
+ */
+.meta__lang,
+.meta__platforms {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -25,7 +46,7 @@
     li { display: inline-block; }
 }
 
-.meta--lang {
+.meta__lang {
     .lang-color {
         display: inline-block;
         width: 14px;
@@ -40,17 +61,200 @@
     }
 }
 
-.ss-main,
-.ss-main .ss-single-selected,
-.ss-main .ss-multi-selected,
-.ss-main .ss-add {
+/**
+ * SlimSelect Custom
+ */
+.ss-main .ss-single-selected {
     height: 100%;
+}
+
+.ss-main .ss-multi-selected .ss-add {
+    margin-top: 14px;
+}
+
+.ss-main .ss-multi-selected .ss-disabled {
+    padding: 10px 5px !important;
+}
+
+.ss-main .ss-single-selected .placeholder {
+    padding: 6px 5px !important;
 }
 
 .ss-main {
     font-size: .90em;
 }
 
-.ss-main .ss-add {
-    margin-top: 14px !important;
+/**
+ * Content Wrapper
+ */
+.main__content {
+    transition: filter 700ms ease-out;
+}
+
+/**
+ * Footer
+ */
+.main__footer {
+    position: relative;
+    box-shadow: 0 -3px 1.2rem rgba(0,0,0,0.4);
+    padding: 2rem 0;
+    background: $dark;
+}
+
+/**
+ * Social Icons
+ */
+.list--social {
+    li {
+        display: inline;
+        list-style: none;
+
+        a {
+            padding: 10px;
+            font-size: 22px;
+            color: $white;
+
+            &:hover {
+                text-decoration: none !important;
+            }
+        }
+    }
+}
+
+/**
+ * Features
+ */
+.feature {
+    margin-bottom: 50px;
+
+    .icon {
+        font-size: 60px;
+
+        i {
+            color: $primary;
+        }
+    }
+}
+
+/**
+ * Preloader
+ */ 
+ #main__loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background: $white url(../img/preloader.gif) center no-repeat;
+}
+
+/**
+ * Go to Top
+ */
+.gototop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transform: translateY(20px);
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    transition: transform, opacity;
+    transition-duration: 300ms;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+
+    a {
+        width: 50px;
+        height: 50px;
+        display: table;
+        background-color: rgba(0, 0, 0, .5);
+        color: $white;
+        text-align: center;
+        border-radius: 4px;        
+        transition: background-color;
+        transition-duration: 150ms;
+
+        i {
+            height: 50px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none;
+            outline: none;
+            background-color: rgba(0, 0, 0, .9);
+        }
+    }
+}
+
+/**
+ * Button Style
+ */
+.btn-outline-primary:hover {
+    color: white;
+}
+
+.main__content .btn {
+    border-radius: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    transition: .3s all ease-in;
+
+    &:focus,
+    &:active {
+        box-shadow: none;
+    }
+
+    &.btn-primary {
+        border: none;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/**
+ * AOS Transitions
+ */
+[data-aos="fade-down-small"] {
+    opacity: 0;
+    transform: translateY(-1rem);
+    transition-property: transform, opacity;
+  
+    &.aos-animate {
+      opacity: 1;
+      transform: none;
+    }
+}
+
+[data-aos="section-title"] {
+    &:after {
+        content: '';
+        display: block;
+        width: 50%;
+        height: 4px;
+        margin-top: 1.5rem;
+        background-color: rgba(255, 255, 255, 0.25);
+        transform: scaleX(0);
+        transform-origin: left;
+        opacity: 0;
+        transition: transform 1.25s ease-out, opacity 1.5s ease-out;
+    }
+  
+    &.aos-animate {
+        &:after {
+            transform: scaleX(1);
+            opacity: 1;
+        }
+    }
 }

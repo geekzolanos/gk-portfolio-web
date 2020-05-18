@@ -1,11 +1,3 @@
-// Import font(s) from google.
-
-@mixin inline-block() {
-	display:inline-block;
-  *display:inline;
-  zoom:1;
-}
-
 // Variables
 $lang-colors: (
 	java: #b07219,
@@ -23,22 +15,29 @@ $grid-breakpoints: (
   lg: 1200px
 );
 
+// Colors
 $primary: #22eaaa;
 $secondary: #ddf0f3;
 
+// Body
+$body-bg: #f6f6f6;
+$body-color: rgba(0, 0, 0, .5);
+
+// Typo
 $font-family-sans-serif: 'Open Sans', sans-serif;
-
 $paragraph-margin-bottom: 1.3em;
-
 $line-height-base: 1.2;
 $h1-font-size: 1.602em;
 $h2-font-size: 1.424em;
 $h3-font-size: 1.266em;
 $h4-font-size: 1.125em;
 $small-font-size: 0.889em;
+$headings-color: #000;
 
+// Forms
 $input-height-border: 10px;
 
+// Spacing
 $spacer: 1rem;
-
-$spacers: (6: ($spacer * 3.75), 7: ($spacer * 4.375), 8: ($spacer * 5), 9: ($spacer * 8));
+$spacers: (6: ($spacer * 3.75), 7: ($spacer * 4.375), 8: ($spacer * 5), 9: ($spacer * 8), 10: ($spacer * 10));
+$sizes: (60: 60%, 70: 70%);

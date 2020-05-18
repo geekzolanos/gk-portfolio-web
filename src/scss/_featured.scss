@@ -1,5 +1,5 @@
 .featured {
-    .meta--lang {
+    .meta__lang {
         font-size: 14px;
     }
     
@@ -41,17 +41,6 @@
                 transform: scale(1);
                 opacity: 1;
             }
-        }
-    }
-    
-    [data-aos="fade-down-small"] {
-        opacity: 0;
-        transform: translateY(-1rem);
-        transition-property: transform, opacity;
-      
-        &.aos-animate {
-          opacity: 1;
-          transform: none;
         }
     }
 }
