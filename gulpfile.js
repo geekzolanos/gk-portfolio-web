@@ -31,7 +31,9 @@ const LIBS_VENDOR = [
     'node_modules/slim-select/dist/slimselect.min.js',
     'node_modules/swiper/js/swiper.min.js',
     'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js',
-    'src/js/vendor/lodash.debounce.min.js'
+    'node_modules/particles.js/particles.js',
+    'node_modules/lottie-web/build/player/lottie_light.min.js',
+    'src/js/vendor/lodash.debounce.min.js',
 ];
 
 // CSS Files not mergeable using @import scss directive
