@@ -1,22 +1,42 @@
-<!-- START: header -->
-<header role="banner" class="probootstrap-header">
-    <div class="container">
-        <a href="/index.html" class="probootstrap-logo">#Geekzolanos</a>
-        
-        <a href="#" class="probootstrap-burger-menu d-block d-md-none" ><i>Menu</i></a>
-        <div class="mobile-menu-overlay"></div>
+{# BEGIN Navbar #}
+<nav class="navbar navbar-light navbar-expand-md p-5">
+    <a href="#" class="nav__menu d-block d-md-none"><i></i></a>
+    <a class="navbar-brand ml-4 lead text-white" href="/index.html">Beta Test</a>
+    <ul class="navbar-nav ml-auto align-items-center d-none d-md-flex">
+        <li class="nav-item mx-2">
+            <a class="nav-link" href="/index.html">Home</a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link" href="/portfolio.html">Portfolio</a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link" href="/about.html">About</a>
+        </li>
+        <li class="nav-item ml-4">
+            <a class="btn btn-outline-primary px-3" href="https://form.jotform.com/200169155350650" target="_blank">Contact</a>
+        </li>
+    </ul>
+</nav>
+{# END Navbar #}
 
-        <nav role="navigation" class="probootstrap-nav d-none d-md-block">
-            <ul class="probootstrap-main-nav">
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/portfolio.html">Portfolio</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="https://form.jotform.com/200169155350650" target="_blank" class="btn btn-outline-primary mr-3">Contact</a></li>
-            </ul>
-            <div class="extra-text d-block d-md-none text-white"> 
-                <a href="#" class="probootstrap-burger-menu"><i>Menu</i></a>
-            </div>
-        </nav>
+{# BEGIN Mobile Menu #}
+<div class="menu__container">
+    <div class="container h-100 d-flex align-items-center justify-content-center">
+        <ul class="menu__list nav flex-column text-center">
+            <li class="list__link py-2">
+                <a href="/index.html">Home</a>
+            </li>
+
+            <li class="list__link py-2">
+                <a href="/portfolio.html">Portfolio</a>
+            </li>
+
+            <li class="list__link py-2 mb-1">
+                <a href="/about.html">About</a>
+            </li>
+            
+            {% include "components/social.njk" %}
+        </ul>
     </div>
-</header>
-<!-- END: header -->
+</div>
+{# END Mobile Menu #}
