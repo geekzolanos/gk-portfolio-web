@@ -1,20 +1,33 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %}
+<section class="section__half vh-100 row">
+  {# BEGIN Featured Image #}
+  <div class="section__image col-12 col-md-6 d-flex flex-column justify-content-center align-items-center pt-9 pb-5" style="background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);">
+    {# Featured Particles #}
+    <div id="image__particles" data-aos="fade-in"></div>
 
-  <section class="probootstrap-section-half d-flex">
-    <div class="probootstrap-image" data-aos="fade-in" style="background-image: url(img/image_3.jpg)"></div>
-    <div class="probootstrap-text d-flex">
-      <div class="probootstrap-inner" data-aos="fade-up">
-        <h1 class="heading">Baloon on the Chair</h1>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-        <p><a href="single-page.html" class="btn btn-primary">View Case Study</a></p>
-      </div>
+    {# Featured Heading #}
+    <div class="image__content w-60 text-white">      
+      <h1 class="display-4 font-weight-lighter text-white" data-aos="section-title">Baloon on the Chair</h1>
+      <p class="text-justify font-weight-light mt-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
     </div>
-  </section>
-  
-  {% for pkgKey in featured %}
-    {% include 'components/featured.njk' %}
-  {% endfor %}
-  
+  </div>
+  {# END Featured Image #}
+
+  {# BEGIN Featured Text #}
+  <div class="section__text col-12 col-md-6 py-4 py-md-0 d-flex align-items-center justify-content-center">
+    <div class="text__inner" data-aos="fade-right">
+      <h1 class="mb-5"><i class="h1 icon-home2"></i></h1>
+      <p class="text-justify">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+      <p><a href="single-page.html" class="btn btn-primary mt-2">View Case Study</a></p>
+    </div>
+  </div>
+  {# END Featured Text #}
+</section>
+
+{% for key in featured %}
+  {% include 'components/featured.njk' %}
+{% endfor %}
+
 {% endblock %}
