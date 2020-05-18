@@ -1,0 +1,53 @@
+{% import "macros/meta.njk" as meta %}
+{% set pkg = packages[key] %}
+
+<div class="project__item {{'phone-zoom' if pkg.flags and 'portfolioPhone' in pkg.flags}}"
+    data-plt="{{pkg.platforms | join(',')}}"
+    data-lang="{{pkg.languages | join(',')}}"
+    data-date="{{pkg.createdAt | timestamp}}">
+
+    {# BEGIN Content #}
+    <div class="content" style="background-color: {{colors[key]}};">
+        <a href="/packages/{{key}}.html">
+            
+            {# BEGIN Meta #}
+            <div class="meta">
+                <div class="meta__inner">
+                    <span class="meta__date" style="background-color: {{colors[key]}};">{{pkg.createdAt | date}}</span>
+                    
+                    <div class="meta__content">
+                        {# BEGIN Meta Attributes #}
+                        <div class="meta__attrs pb-2">              
+                            <ul class="meta__lang mr-2" data-aos="fade-down-small" data-aos-delay="400">
+                                {% for langKey in pkg.languages %}
+                                    {{ meta.langItem(langKey, languages[langKey]) }}
+                                {% endfor %}
+                            </ul>
+
+                            <ul class="meta__platforms" data-aos="fade-down-small" data-aos-delay="400">
+                                {% for pltKey in pkg.platforms %}
+                                    {{ meta.pltItem(platforms[pltKey], true) }}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {# END Meta Attributes #}
+
+                        <p class="mb-0 mt-2">{{pkg.shortDescription}}</p>
+                    </div>
+
+                    {# BEGIN Title #}
+                    <div class="meta__title">
+                        <h2>{{pkg.name}}</h2>
+                    </div>
+                    {# END Title #}
+                </div>
+            </div>
+            {# END Meta #}
+
+            {# BEGIN Image #}
+            <img data-lazyload="true" data-src="/img/packages/{{key}}/thumb.png" />
+            {# END Image #}
+        </a>
+    </div>
+    {# END Content #}
+</div>    
