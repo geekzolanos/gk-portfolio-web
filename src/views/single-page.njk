@@ -5,10 +5,12 @@
 
 
 {% block content %}
-<section id="single">  
-  <section class="probootstrap-section-half d-flex probootstrap-no-hover">
+<section id="single">
+  <section class="section__half section--sm-full min-vh-100 row">
     {# BEGIN Featured Image #}
-    <div class="probootstrap-image d-flex flex-column justify-content-center align-items-center pt-9 pb-5" style="background-color: {{colors[current]}};">
+    <div class="section__image col-12 col-md-6 d-flex flex-column justify-content-center align-items-center pt-9 pb-5" style="background-color: {{colors[current]}};">
+      
+      {# BEGIN Featured Slideshow #}
       <div class="single__slideshow">
         <div class="swiper-wrapper">
           {% for i in range(0, pkg.imgs) -%}
@@ -22,17 +24,18 @@
           {%- endfor %}
         </div>
       </div>
+      {# END Featured Slideshow #}
 
       {% include 'components/single-action.njk' %}
     </div>
     {# END Featured Image #}
 
     {# BEGIN Featured Content #}
-    <div class="probootstrap-text d-flex">
-      <div class="probootstrap-inner">
+    <div class="section__text col-12 col-md-6 py-4 py-md-0 d-flex align-items-center justify-content-center">
+      <div class="text__inner">
         <div class="heading">
           <h1 class="pb-0 d-inline-block">{{ pkg.name }}</h1>
-          <ul class="meta--platforms d-inline-block" data-aos="fade-down-small" data-aos-delay="400">
+          <ul class="meta__platforms d-inline-block" data-aos="fade-down-small" data-aos-delay="400">
               {% for pltKey in pkg.platforms -%}
                   {{ meta.pltItem(platforms[pltKey], true) }}
               {%- endfor %}
@@ -40,7 +43,7 @@
         </div>
 
         {% if pkg.languages %}
-          <ul class="meta--lang mb-2" data-aos="fade-down-small" data-aos-delay="400">
+          <ul class="meta__lang mb-2" data-aos="fade-down-small" data-aos-delay="400">
               {% for langKey in pkg.languages %}
                   {{ meta.langItem(langKey, languages[langKey]) }}
               {% endfor %}
@@ -49,7 +52,7 @@
 
         <p class="text-justify">{{ pkg.description }}</p>
 
-        <div class="row row-cols-2 meta--details mt-5">
+        <div class="row row-cols-2 meta__details mt-5">
           <div class="col">
               <h1 class="my-0 text-muted">{{pkg.createdAt | date}}</h1>
               <h6 class="my-0 mt-2 text-muted text-uppercase">Fecha de publicacion</h6>
@@ -64,15 +67,16 @@
     {# END Featured Content #}
   </section>
 
-  <section class="probootstrap-section px-4">
+  <section class="py-8 py-md-10 px-4">
     <div class="container">
       <div class="row row-cols-md-3 row-cols-1">        
         <div class="col align-self-center">
           <h1 class="features__heading">Caracteristicas</h1>
         </div>
+
         {% for feature in pkg.features -%}
           <div class="col" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 200 }}">          
-            <div class="service left-icon">
+            <div class="feature left-icon">
               <div class="icon">
                 <i class="{{feature.iconClass}}"></i>
               </div>

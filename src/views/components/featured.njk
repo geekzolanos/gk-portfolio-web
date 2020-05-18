@@ -1,23 +1,22 @@
 {% import "macros/meta.njk" as meta %}
-{% set pkg = packages[pkgKey] %}
-{% set color = colors[pkgKey] %}
+{% set pkg = packages[key] %}
+{% set color = colors[key] %}
 {% set isOdd = loop.index % 2 == 0 %}
 
-<section class="featured probootstrap-section-half d-flex {{ 'probootstrap-reverse' if isOdd }}">
-    {# BEGIN Featured Image #}
-    <div class="probootstrap-image" data-animate-effect="fadeIn" style="background-color: {{color}}">
+<section class="featured section__half section--hover vh-100 row">
+    <div class="section__image col-12 col-md-6 py-4 py-md-0 {{ 'order-md-2' if isOdd }}" style="background-color: {{color}}">
+        {# BEGIN Featured Image #}
         <div class="img-container absolute-center {{'feat-frame' if pkg.flags and 'hasFeaturedFrame' in pkg.flags}}">
-            <img data-lazyload="true" data-src="/img/packages/{{pkgKey}}/thumb.png" />        
+            <img data-lazyload="true" data-src="/img/packages/{{key}}/thumb.png" />        
         </div>
+        {# END Featured Image #}
     </div>
-    {# END Featured Image #}
-
-    {# BEGIN Featured Content #}
-    <div class="probootstrap-text d-flex">
-        <div class="probootstrap-inner" data-aos="{{'fade-left' if isOdd else 'fade-right'}}" data-aos-easing="ease-in-out">
+    
+    <div class="section__text col-12 col-md py-4 py-md-0 d-flex align-items-center justify-content-center">
+        <div class="text__inner" data-aos="{{'fade-left' if isOdd else 'fade-right'}}" data-aos-easing="ease-in-out">
             <div class="heading">
                 <h1 class="pb-0 d-inline-block">{{ pkg.name }}</h1>
-                <ul class="meta--platforms d-inline-block" data-aos="fade-down-small" data-aos-delay="400">
+                <ul class="meta__platforms d-inline-block" data-aos="fade-down-small" data-aos-delay="400">
                     {% for pltKey in pkg.platforms -%}
                         {{ meta.pltItem(platforms[pltKey], true) }}
                     {%- endfor %}
@@ -25,7 +24,7 @@
             </div>
 
             {% if pkg.languages %}
-                <ul class="meta--lang mb-2" data-aos="fade-down-small" data-aos-delay="400">
+                <ul class="meta__lang mb-2" data-aos="fade-down-small" data-aos-delay="400">
                     {% for langKey in pkg.languages %}
                         {{ meta.langItem(langKey, languages[langKey]) }}
                     {% endfor %}
@@ -34,8 +33,7 @@
 
             <p class="text-justify">{{ pkg.description }}</p>
             
-            {{ meta.featBtn(pkgKey, color) }}
+            {{ meta.featBtn(key, color) }}
         </div>
     </div>
-    {# END Featured Content #}
 </section>

@@ -1,32 +1,47 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %}
+  <section class="section__half vh-100 row">
+    {# BEGIN Featured Image #}
+    <div class="section__image col-12 col-md-6 d-flex flex-column justify-content-center align-items-center pt-9 pb-5" style="background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);">
+      
+      {# Featured Particles #}
+      <div id="image__particles" data-aos="fade-in"></div>
 
-  <section class="probootstrap-section-half d-flex">
-    <div class="probootstrap-image" data-aos="fade-in" style="background-image: url(img/image_1.jpg)"></div>
-    <div class="probootstrap-text d-flex">
-      <div class="probootstrap-inner" data-aos="fade-up">
-        <h1 class="heading">Pouring Milk In Hand</h1>
+      {# Featured Heading #}
+      <div class="image__content w-60 text-white">      
+        <h1 class="display-4 font-weight-lighter text-white" data-aos="section-title">Baloon on the Chair</h1>
+        <p class="text-justify font-weight-light mt-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+      </div>
+    </div>
+    {# END Featured Image #}
+
+    {# BEGIN Featured Text #}
+    <div class="section__text col-12 col-md-6 py-4 py-md-0 d-flex align-items-center justify-content-center">
+      <div class="text__inner" data-aos="fade-right">
         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-        <div class="portfolio--count mt-5">
+
+        {# Portfolio Count #}
+        <div class="portfolio__count mt-5">
           <h1 class="js-counter display-4 mb-2" data-to="{{ packages | length }}" data-speed="800" data-refresh-interval="10"></h1>
           <h6 class="text-muted">Proyectos actuales</h6>
         </div>
       </div>
     </div>
+    {# END Featured Text #}
   </section>
 
-  <div id="portfolio--header" class="mt-8 text-center">
+  <div id="portfolio__header" class="mt-8 text-center">
     <h1 class="mt-5">Todos los proyectos</h1>
     <p>Consulte a continuacion el catalogo de proyectos creados.</p>
   </div>
 
-  <div id="portfolio--filters" class="row row-cols-md-4 row-cols-1 justify-content-center w-75 mx-auto my-5">
+  <div id="portfolio__filters" class="row row-cols-md-4 row-cols-1 justify-content-center w-75 mx-auto my-5">
     <div class="col">
       <input id="search-input" type="text" class="form-control" placeholder="Buscar...">
     </div>
 
-    <div class="col">
+    <div class="col mt-3 mt-md-0">
       <select id="portfolio-plt" multiple>
         <option data-placeholder="true">Plataformas (Todas)</option>
         {% for key, meta in platforms -%}
@@ -35,7 +50,7 @@
       </select>
     </div>
 
-    <div class="col">
+    <div class="col mt-3 mt-md-0">
       <select id="portfolio-lang" multiple>
         <option data-placeholder="true">Lenguajes (Todos)</option>
         {% for key, name in languages -%}
@@ -44,7 +59,7 @@
       </select>
     </div>  
 
-    <div class="col">
+    <div class="col mt-3 mt-md-0">
       <select id="portfolio-filter">
         <option value="0" selected>Fecha de subida (Mas reciente)</option>
         <option value="1">Fecha de subida (Mas antiguo)</option>
