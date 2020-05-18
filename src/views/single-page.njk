@@ -84,6 +84,19 @@
           </div>
         {%- endfor %}
       </div>
+
+      <hr class="my-8">
+
+      <div class="related__grid">
+        <h1 class="text-center">Relacionados</h1>          
+        <div class="row align-items-start justify-content-center mt-5">
+          {% for key in related -%}
+            <div class="col-12 col-md-auto mt-4 mt-md-0">
+              {% include 'components/project-item.njk' %}
+            </div>
+          {%- endfor %}
+        </div>
+      </div>
     </div>
   </section>
   <!-- END section -->

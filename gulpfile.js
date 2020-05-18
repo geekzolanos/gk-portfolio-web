@@ -119,8 +119,16 @@ gulp.task('html', function() {
         .pipe(gulp.dest('build'));
 });
 
-function parsePackagePage(pkg) {
-    const pl = { current: pkg, ...payload };
+function parsePackagePage(key, i, pkgs) {
+    const length = pkgs.length;
+    const first = i == 0;
+    const last = i >= (length - 1);
+
+    const related = [];
+    related.push(first ? pkgs[i + 2] : pkgs[i - 1]);
+    related.push(last ? pkgs[i - 2] : pkgs[i + 1]);
+
+    const pl = { current: key, ...payload, related };
 
     return gulp.src('src/views/single-page.njk')
         .pipe(data(pl))
@@ -128,7 +136,7 @@ function parsePackagePage(pkg) {
             path: ['src/views'],
             manageEnv: manageEnvironment
         }))
-        .pipe(rename({basename: pkg}))
+        .pipe(rename({basename: key}))
         .pipe(gulp.dest('build/packages'));
 }
 
