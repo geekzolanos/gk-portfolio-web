@@ -113,9 +113,13 @@
             padding: 10px;
             font-size: 22px;
             color: $white;
+            transition: background-color;
+            transition-duration: .4s;
+            transition-timing-function: ease;
 
             &:hover {
                 text-decoration: none !important;
+                background-color: $primary;
             }
         }
     }
