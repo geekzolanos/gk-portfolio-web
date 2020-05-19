@@ -224,6 +224,26 @@
 }
 
 /**
+ * Text Slide
+ */
+.text__slide {
+    position: absolute;
+    right: 8px;
+    bottom: 0;
+    transform-origin: top right;
+    
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 40px;
+        height: 1px;
+        margin-left: 10px;
+        vertical-align: middle;
+        background: black;
+    }
+}
+
+/**
  * AOS Transitions
  */
 [data-aos="fade-down-small"] {
@@ -255,6 +275,26 @@
         &:after {
             transform: scaleX(1);
             opacity: 1;
+        }
+    }
+}
+
+[data-aos="text-slide"] {
+    transform: translateY(-1rem) rotate(90deg);
+    opacity: 0;
+    transition: transform 1.75s ease-out, opacity 2s ease-out;
+
+    &:after {
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 2.5s ease-out;
+    }
+  
+    &.aos-animate {
+        opacity: 1;
+        transform: rotate(90deg);
+        &:after {
+            transform: scaleX(1);
         }
     }
 }
