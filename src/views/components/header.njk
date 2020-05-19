@@ -1,42 +1,58 @@
 {# BEGIN Navbar #}
 <nav class="navbar navbar-light navbar-expand-md p-5">
-    <a href="#" class="nav__menu d-block d-md-none"><i></i></a>
-    <a class="navbar-brand ml-4 lead text-white" href="/index.html">Beta Test</a>
-    <ul class="navbar-nav ml-auto align-items-center d-none d-md-flex">
-        <li class="nav-item mx-2">
-            <a class="nav-link" href="/index.html">Home</a>
-        </li>
-        <li class="nav-item mx-2">
-            <a class="nav-link" href="/portfolio.html">Portfolio</a>
-        </li>
-        <li class="nav-item mx-2">
-            <a class="nav-link" href="/about.html">About</a>
-        </li>
-        <li class="nav-item ml-4">
-            <a class="btn btn-outline-primary px-3" href="https://form.jotform.com/200169155350650" target="_blank">Contact</a>
-        </li>
-    </ul>
+    <a class="navbar-brand ml-4 lead text-white" href="/index.html">Beta Test</a>    
+    <a href="#" class="nav__menu ml-auto"><i></i></a>
 </nav>
 {# END Navbar #}
 
 {# BEGIN Mobile Menu #}
 <div class="menu__container">
-    <div class="container h-100 d-flex align-items-center justify-content-center">
-        <ul class="menu__list nav flex-column text-center">
-            <li class="list__link py-2">
-                <a href="/index.html">Home</a>
-            </li>
+    <div class="menu__content container h-100 d-flex flex-column align-items-center justify-content-center">        
+        <div class="content__wrapper">
+            <ul class="menu__list nav flex-column text-center">
+                <li class="list__link py-2">
+                    <a href="/index.html">Home</a>
+                </li>
 
-            <li class="list__link py-2">
-                <a href="/portfolio.html">Portfolio</a>
-            </li>
+                <li class="list__link py-2">
+                    <a href="/portfolio.html">Portfolio</a>
+                </li>
 
-            <li class="list__link py-2 mb-1">
-                <a href="/about.html">About</a>
-            </li>
-            
-            {% include "components/social.njk" %}
-        </ul>
+                <li class="list__link py-2 mb-1">
+                    <a href="/about.html">About</a>
+                </li>            
+            </ul>
+        
+            <hr />            
+            <div class="row row-cols-md-2 row-cols-1 text-center py-3 py-md-4">
+                <div class="col">
+                    <div class="d-none d-md-block">
+                        <h6 class="text-white">Contacto</h6>
+                        <p>Estare encantado de atenderle, atendere sus inquietudes a la brevedad posible.</p>
+                    </div>
+                       target="_blank" 
+                       class="btn btn-featured">
+                       <span><i class="icon-envelop"></i> Contacto</span>
+                       <i class="icon-arrow-right22"></i>
+                    </a>
+                </div>
+                <div class="col mt-3 mt-md-0">
+                    <div class="d-none d-md-block">
+                        <h6 class="text-white">Descargar Curriculum</h6>
+                        <p>Descargue el resumen curricular pulsando en la opcion de abajo</p>
+                    </div>
+                       target="_blank" 
+                       class="btn btn-featured">
+                        <span><i class="icon-profile"></i> Descargar</span>
+                        <i class="icon-arrow-right22"></i>
+                    </a>
+                </div>
+            </div>
+            <hr />
+
+            {% include "components/social.njk" %}        
+        </div>
+        <div class="content__backdrop"></div>
     </div>
 </div>
 {# END Mobile Menu #}

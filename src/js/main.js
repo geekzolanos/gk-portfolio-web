@@ -23,8 +23,11 @@
 	const mobileMenu = function() {		
 		$(".nav__menu").click(e => {
 			e.preventDefault();
-			$('body').toggleClass("menu--open")
+			$('body').toggleClass("menu--open");
 		});
+
+		$(".content__backdrop").click(() => 
+			$('body').removeClass("menu--open"));
 	};
 
 	/*----------------------------------------
