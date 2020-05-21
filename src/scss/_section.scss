@@ -52,6 +52,10 @@
             transition-property: opacity, transform, width !important;
         }
         
+        .image__content {
+            font-family: Poppins;
+        }
+
         #image__particles {
             position: absolute;
             top: 0;
