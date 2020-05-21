@@ -1,7 +1,7 @@
 const fs = require('fs'),
       gulp = require('gulp'),
       sass = require('gulp-sass'),
-      uglify = require('gulp-uglify'),
+      terser = require('gulp-terser'),
       rename = require('gulp-rename'),
       cleanCSS = require('gulp-clean-css'),
       concat = require('gulp-concat'),
