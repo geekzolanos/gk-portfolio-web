@@ -34,53 +34,49 @@
     {# END Featured Text #}
   </section>
 
-  <div id="portfolio__header" class="mt-8 text-center">
-    <h1 class="mt-5">Todos los proyectos</h1>
-    <p>Consulte a continuacion el catalogo de proyectos creados.</p>
-  </div>
-
-  <div id="portfolio__filters" class="row row-cols-md-4 row-cols-1 justify-content-center w-75 mx-auto my-5">
-    <div class="col">
-      <input id="search-input" type="text" class="form-control" placeholder="Buscar...">
+  <div class="container py-8">
+    <div id="portfolio__header" class="text-center">
+      <h1 class="mt-5">Todos los proyectos</h1>
+      <p>Consulte a continuación el catálogo de proyectos creados.</p>
     </div>
 
-    <div class="col mt-3 mt-md-0">
-      <select id="portfolio-plt" multiple>
-        <option data-placeholder="true">Plataformas (Todas)</option>
-        {% for key, meta in platforms -%}
-          <option data-icon="{{meta.iconClass}}" value="{{key}}">{{meta.name}}</option>        
+    <div id="portfolio__filters" class="row row-cols-md-4 row-cols-1 justify-content-center w-75 mx-auto my-5">
+      <div class="col">
+        <input id="search-input" type="text" class="form-control" placeholder="Buscar...">
+      </div>
+
+      <div class="col mt-3 mt-md-0">
+        <select id="portfolio-plt" multiple>
+          <option data-placeholder="true">Plataformas (Todas)</option>
+          {% for key, meta in platforms -%}
             <option data-icon="{{meta.iconClass}}" value="{{key}}">{{meta.name}}</option>        
-          <option data-icon="{{meta.iconClass}}" value="{{key}}">{{meta.name}}</option>        
-        {%- endfor %}
-      </select>
-    </div>
+          {%- endfor %}
+        </select>
+      </div>
 
-    <div class="col mt-3 mt-md-0">
-      <select id="portfolio-lang" multiple>
-        <option data-placeholder="true">Lenguajes (Todos)</option>
-        {% for key, name in languages -%}
-          <option value="{{key}}">{{name}}</option>        
+      <div class="col mt-3 mt-md-0">
+        <select id="portfolio-lang" multiple>
+          <option data-placeholder="true">Lenguajes (Todos)</option>
+          {% for key, name in languages -%}
             <option value="{{key}}">{{name}}</option>        
-          <option value="{{key}}">{{name}}</option>        
-        {%- endfor %}
-      </select>
-    </div>  
+          {%- endfor %}
+        </select>
       </div>  
-    </div>  
 
-    <div class="col mt-3 mt-md-0">
-      <select id="portfolio-filter">
-        <option value="0" selected>Fecha de subida (Mas reciente)</option>
-        <option value="1">Fecha de subida (Mas antiguo)</option>
-        <option value="2">Alfabeticamente (A-Z)</option>
-        <option value="3">Alfabeticamente (Z-A)</option>
-      </select>
+      <div class="col mt-3 mt-md-0">
+        <select id="portfolio-filter">
+          <option value="0" selected>Fecha de subida (Mas reciente)</option>
+          <option value="1">Fecha de subida (Mas antiguo)</option>
+          <option value="2">Alfabeticamente (A-Z)</option>
+          <option value="3">Alfabeticamente (Z-A)</option>
+        </select>
+      </div>
     </div>
-  </div>
 
-  <section id="portfolio__grid">
-    {% for key, val in packages %}
-      {% include 'components/project-item.njk' %}
-    {% endfor %}
-  </section>
+    <section id="portfolio__grid">
+      {% for key, val in packages %}
+        {% include 'components/project-item.njk' %}
+      {% endfor %}
+    </section>
+  </div>
 {% endblock %}
