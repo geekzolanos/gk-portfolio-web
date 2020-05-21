@@ -10,16 +10,17 @@
 
       {# Featured Heading #}
       <div class="image__content w-60 text-white">      
-        <h1 class="display-4 font-weight-lighter text-white" data-aos="section-title">Baloon on the Chair</h1>
-        <p class="text-justify font-weight-light mt-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+        <h1 class="display-4 font-weight-bolder text-white" data-aos="section-title">Portafolio</h1>
+        <p class="text-justify font-weight-light mt-4">Analice, pruebe, colabore con los proyectos disponibles en esta sección.</p>
       </div>
     </div>
     {# END Featured Image #}
 
     {# BEGIN Featured Text #}
     <div class="section__text col-12 col-md-6 py-4 py-md-0 d-flex align-items-center justify-content-center">
-      <div class="text__inner" data-aos="fade-right">
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+      <div class="text__inner text-justify" data-aos="fade-right">
+        <p>Conozca más detalles y acceda al código fuente a través de repositorios públicos disponibles para la comunidad.</p>
+        <p>Tenga en consideración que algunos de estos pueden encontrarse en etapas tempranas de desarrollo. Por lo que podrían requerir trabajo adicional.</p>
 
         {# Portfolio Count #}
         <div class="portfolio__count mt-5">
@@ -48,6 +49,8 @@
         <option data-placeholder="true">Plataformas (Todas)</option>
         {% for key, meta in platforms -%}
           <option data-icon="{{meta.iconClass}}" value="{{key}}">{{meta.name}}</option>        
+            <option data-icon="{{meta.iconClass}}" value="{{key}}">{{meta.name}}</option>        
+          <option data-icon="{{meta.iconClass}}" value="{{key}}">{{meta.name}}</option>        
         {%- endfor %}
       </select>
     </div>
@@ -57,8 +60,12 @@
         <option data-placeholder="true">Lenguajes (Todos)</option>
         {% for key, name in languages -%}
           <option value="{{key}}">{{name}}</option>        
+            <option value="{{key}}">{{name}}</option>        
+          <option value="{{key}}">{{name}}</option>        
         {%- endfor %}
       </select>
+    </div>  
+      </div>  
     </div>  
 
     <div class="col mt-3 mt-md-0">
