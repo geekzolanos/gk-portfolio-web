@@ -1,4 +1,8 @@
 .featured {
+    .section__image img {
+        max-width: 100%;
+    }
+
     .meta__lang {
         font-size: 14px;
     }
