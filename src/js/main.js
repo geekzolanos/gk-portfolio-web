@@ -377,6 +377,51 @@
 		});
 	}
 
+	const l18n = function() {
+		const lang = window.sessionStorage.getItem("com.gk.portfolio.lang") || "en";
+
+		$("[data-l18n-lang]").click(function(e) {
+			const lang = $(this).data("l18n-lang");
+			e.preventDefault();
+			window.sessionStorage.setItem("com.gk.portfolio.lang", lang);
+			window.location.reload();
+		});
+
+		// Load the lang
+		if(lang != "es") {
+			fetch(`/lang/${lang}.json`)
+				.then(res => res.json())
+				.then(updateLangNodes);
+		}
+	};
+
+	const updateLangNodes = function(dict) {
+		$("[data-l18n]").each(function() {
+			const key = this.dataset.l18n;
+			this.innerText = dict[key] || this.innerText;
+		});
+
+		$("[data-l18n-pkg]").each(function() {
+			const $el = $(this);
+			const key = $el.data("l18n-pkg");
+			const pkgDict = dict.packages[key];
+			
+			$el.find("[data-l18n-pkg-prop]").each(function() {
+				const prop = $(this).data("l18n-pkg-prop");
+				let val = pkgDict;
+
+				try {
+					prop.split('[')
+						.forEach(p => val = p.includes(']') ? val[p.slice(0, p.length - 1)] : val[p]);
+				} catch(_e) {
+					console.error("L18n", `Invalid identifier: ${prop}`);
+				}
+				
+				this.innerText = val || this.innerText;
+			});
+		});
+	};
+
 	/*----------------------------------------
 		Document Ready 
 	----------------------------------------*/
@@ -395,6 +440,7 @@
 		particles();
 		initAos();
 		enableLottie();
+		l18n();
 		TurbolinksAnimate.init();
 	}
 

@@ -3,7 +3,7 @@
 {% set color = colors[key] %}
 {% set isOdd = loop.index % 2 == 0 %}
 
-<section class="featured section__half section--hover vh-100 row">
+<section class="featured section__half section--hover min-vh-100 row" data-l18n-pkg="{{ key }}">
     <div class="section__image col-12 col-md-6 py-4 py-md-0 {{ 'order-md-2' if isOdd }}" style="background-color: {{color}}">
         {# BEGIN Featured Image #}
         <div class="img-container absolute-center {{'feat-frame' if pkg.flags and 'hasFeaturedFrame' in pkg.flags}}">
@@ -15,7 +15,7 @@
     <div class="section__text col-12 col-md py-4 py-md-0 d-flex align-items-center justify-content-center">
         <div class="text__inner text-justify" data-aos="{{'fade-left' if isOdd else 'fade-right'}}" data-aos-easing="ease-in-out">
             <div class="heading">
-                <h1 class="pb-0 d-inline-block">{{ pkg.name }}</h1>
+                <h1 class="pb-0 d-inline-block" data-l18n-pkg-prop="name">{{ pkg.name }}</h1>
                 <ul class="meta__platforms d-inline-block" data-aos="fade-down-small" data-aos-delay="400">
                     {% for pltKey in pkg.platforms -%}
                         {{ meta.pltItem(platforms[pltKey], true) }}
@@ -31,7 +31,7 @@
                 </ul>
             {% endif %}
 
-            <p class="text-justify">{{ pkg.description }}</p>
+            <p class="text-justify" data-l18n-pkg-prop="description">{{ pkg.description }}</p>
             
             {{ meta.featBtn(key, color) }}
         </div>

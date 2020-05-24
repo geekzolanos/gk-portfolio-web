@@ -3,10 +3,9 @@
 
 {% extends "layouts/base.njk" %}
 
-
 {% block content %}
-<section id="single">
-  <section class="section__half corner--radius section--sm-full min-vh-100 row">
+<section id="single" data-l18n-pkg="{{current}}"">
+  <section class="section__half corner--radius min-vh-100 row">
     {# BEGIN Featured Image #}
     <div class="section__image col-12 col-md-6 d-flex flex-column justify-content-center align-items-center pt-9 pb-5" style="background-color: {{colors[current]}};">
       
@@ -26,7 +25,9 @@
       </div>
       {# END Featured Slideshow #}
 
-      {% include 'components/single-action.njk' %}
+      <div class="single__actions">
+        {% include 'components/single-action.njk' %}
+      </div>
     </div>
     {# END Featured Image #}
 
@@ -34,7 +35,7 @@
     <div class="section__text col-12 col-md-6 py-4 py-md-0 d-flex align-items-center justify-content-center">
       <div class="text__inner text-justify">
         <div class="heading">
-          <h1 class="pb-0 d-inline-block">{{ pkg.name }}</h1>
+          <h1 class="pb-0 d-inline-block" data-l18n-pkg-prop="name">{{ pkg.name }}</h1>
           <ul class="meta__platforms d-inline-block" data-aos="fade-down-small" data-aos-delay="400">
               {% for pltKey in pkg.platforms -%}
                   {{ meta.pltItem(platforms[pltKey], true) }}
@@ -50,30 +51,31 @@
           </ul>
         {% endif %}
 
-        <p class="text-justify">{{ pkg.description }}</p>
+        <p class="text-justify" data-l18n-pkg-prop="description">{{ pkg.description }}</p>
 
         <div class="row meta__details mt-5">
           <div class="col-auto">
               <h1 class="my-0 text-muted">{{pkg.createdAt | date}}</h1>
-              <h6 class="my-0 mt-2 text-muted text-uppercase">Fecha de publicacion</h6>
+              <h6 class="my-0 mt-2 text-muted text-uppercase" data-l18n="publishDate">Fecha de publicacion</h6>
           </div>
-          <div class="col">
+          <div class="col mt-5 mt-md-0">
               <h1 class="my-0 text-muted">{{pkg.version}}</h1>
               <h6 class="my-0 mt-2 text-muted text-uppercase">Version</h6>
           </div>
         </div>
       </div>
       
-      <small class="text__slide d-none d-md-block" data-aos="text-slide" data-aos-anchor=".section__text">Deslize para ver mas información</small>
+      <small class="text__slide d-none d-md-block" data-aos="text-slide" data-aos-anchor=".section__text" data-l18n="swipe-down">Deslize para ver mas información</small>
     </div>
     {# END Featured Content #}
   </section>
 
-  <section class="py-8 py-md-10 px-4">
+  {# BEGIN Features #}
+  <section class="pt-8 pt-md-10 px-4">
     <div class="container">
-      <div class="row row-cols-md-3 row-cols-1">        
+      <div class="row row-cols-md-3 row-cols-1">
         <div class="col align-self-center">
-          <h1 class="features__heading">Caracteristicas</h1>
+          <h1 class="features__heading" data-l18n="features">Caracteristicas</h1>
         </div>
 
         {% for feature in pkg.features -%}
@@ -83,28 +85,33 @@
                 <i class="{{feature.iconClass}}"></i>
               </div>
               <div class="text text-justify">
-                <h3 class="heading">{{feature.title}}</h3>
-                <p>{{feature.description}} </p>
+                <h3 class="heading" data-l18n-pkg-prop="features[{{loop.index0}}][title]">{{feature.title}}</h3>
+                <p data-l18n-pkg-prop="features[{{loop.index0}}][description]">{{feature.description}} </p>
               </div>
             </div>
           </div>
         {%- endfor %}
       </div>
-
-      <hr class="my-8">
-
-      <div class="related__grid">
-        <h1 class="text-center">Relacionados</h1>          
-        <div class="row align-items-start justify-content-center mt-5">
-          {% for key in related -%}
-            <div class="col-12 col-md-auto mt-4 mt-md-0">
-              {% include 'components/project-item.njk' %}
-            </div>
-          {%- endfor %}
-        </div>
-      </div>
     </div>
   </section>
-  <!-- END section -->
+  {# END Features #}
 </section>
+
+{# BEGIN Related #}
+<section>  
+  <div class="container pb-8 pb-md-10">
+    <hr class="my-8"/>
+    <div class="related__grid">
+      <h1 class="text-center" data-l18n="related">Relacionados</h1>          
+      <div class="row align-items-start justify-content-center mt-5">
+        {% for key in related -%}
+          <div class="col-12 col-md-auto mt-4 mt-md-0">
+            {% include 'components/project-item.njk' %}
+          </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{# END Related #}
 {% endblock %}

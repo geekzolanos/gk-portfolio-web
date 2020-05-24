@@ -1,7 +1,7 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-  <section class="section__half vh-100 row">
+  <section class="section__half min-vh-100 row">
     {# BEGIN Featured Image #}
     <div class="section__image corner--radius col-12 col-md-6 d-flex flex-column justify-content-center align-items-center pt-9 pb-5" style="background-image: linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);">
       
@@ -10,8 +10,8 @@
 
       {# Featured Heading #}
       <div class="image__content w-60 text-white">      
-        <h1 class="display-4 font-weight-bolder text-white" data-aos="section-title">Portafolio</h1>
-        <p class="text-justify font-weight-light mt-4">Analice, pruebe, colabore con los proyectos disponibles en esta sección.</p>
+        <h1 class="display-4 font-weight-bolder text-white" data-aos="section-title" data-l18n="portfolio">Portafolio</h1>
+        <p class="text-justify font-weight-light mt-4" data-l18n="p-feat-desc">Analice, pruebe, colabore con los proyectos disponibles en esta sección.</p>
       </div>
     </div>
     {# END Featured Image #}
@@ -19,25 +19,25 @@
     {# BEGIN Featured Text #}
     <div class="section__text col-12 col-md-6 py-4 py-md-0 d-flex align-items-center justify-content-center">
       <div class="text__inner text-justify" data-aos="fade-right">
-        <p>Conozca más detalles y acceda al código fuente a través de repositorios públicos disponibles para la comunidad.</p>
-        <p>Tenga en consideración que algunos de estos pueden encontrarse en etapas tempranas de desarrollo. Por lo que podrían requerir trabajo adicional.</p>
+        <p data-l18n="p-feat-p0">Conozca más detalles y acceda al código fuente a través de repositorios públicos disponibles para la comunidad.</p>
+        <p data-l18n="p-feat-p1">Tenga en consideración que algunos de estos pueden encontrarse en etapas tempranas de desarrollo. Por lo que podrían requerir trabajo adicional.</p>
 
         {# Portfolio Count #}
         <div class="portfolio__count mt-5">
           <h1 class="js-counter display-4 mb-2" data-to="{{ packages | length }}" data-speed="800" data-refresh-interval="10"></h1>
-          <h6 class="text-muted">Proyectos actuales</h6>
+          <h6 class="text-muted" data-l18n="p-feat-pr">Proyectos actuales</h6>
         </div>
       </div>
 
-      <small class="text__slide d-none d-md-block" data-aos="text-slide" data-aos-anchor=".section__text">Deslize para ver mas información</small>
+      <small class="text__slide d-none d-md-block" data-aos="text-slide" data-aos-anchor=".section__text" data-l18n="swipe-down">Deslize para ver mas información</small>
     </div>
     {# END Featured Text #}
   </section>
 
   <div class="container py-8">
     <div id="portfolio__header" class="text-center">
-      <h1 class="mt-5">Todos los proyectos</h1>
-      <p>Consulte a continuación el catálogo de proyectos creados.</p>
+      <h1 class="mt-5" data-l18n="p-pr-title">Todos los proyectos</h1>
+      <p data-l18n="p-pr-desc">Consulte a continuación el catálogo de proyectos creados.</p>
     </div>
 
     <div id="portfolio__filters" class="row row-cols-md-4 row-cols-1 justify-content-center w-75 mx-auto my-5">
@@ -47,7 +47,7 @@
 
       <div class="col mt-3 mt-md-0">
         <select id="portfolio-plt" multiple>
-          <option data-placeholder="true">Plataformas (Todas)</option>
+          <option data-placeholder="true" data-l18n="p-frm-pl">Plataformas (Todas)</option>
           {% for key, meta in platforms -%}
             <option data-icon="{{meta.iconClass}}" value="{{key}}">{{meta.name}}</option>        
           {%- endfor %}
@@ -56,7 +56,7 @@
 
       <div class="col mt-3 mt-md-0">
         <select id="portfolio-lang" multiple>
-          <option data-placeholder="true">Lenguajes (Todos)</option>
+          <option data-placeholder="true" data-l18n="p-frm-lang-all">Lenguajes (Todos)</option>
           {% for key, name in languages -%}
             <option value="{{key}}">{{name}}</option>        
           {%- endfor %}
@@ -65,10 +65,10 @@
 
       <div class="col mt-3 mt-md-0">
         <select id="portfolio-filter">
-          <option value="0" selected>Fecha de subida (Mas reciente)</option>
-          <option value="1">Fecha de subida (Mas antiguo)</option>
-          <option value="2">Alfabeticamente (A-Z)</option>
-          <option value="3">Alfabeticamente (Z-A)</option>
+          <option value="0" selected data-l18n="p-frm-filter-new">Fecha de subida (Mas reciente)</option>
+          <option value="1" data-l18n="p-frm-filter-old">Fecha de subida (Mas antiguo)</option>
+          <option value="2" data-l18n="p-frm-filter-az">Alfabeticamente (A-Z)</option>
+          <option value="3" data-l18n="p-frm-filter-za">Alfabeticamente (Z-A)</option>
         </select>
       </div>
     </div>

@@ -1,25 +1,35 @@
 {# BEGIN Navbar #}
-<nav class="navbar navbar-light navbar-expand-md p-5">
+<nav class="navbar navbar-light navbar-expand-md pb-0 px-5 pt-5 pb-md-5">
     <a class="navbar-brand ml-4 lead text-white" href="/index.html">David Romero</a>    
-    <a href="#" class="nav__menu ml-auto"><i></i></a>
+    <div class="navbar__right ml-auto">
+        <div class="dropdown mr-3" style="vertical-align: -2px; display: inline-block;">
+            <a class="btn btn-light dropdown-toggle" data-toggle="dropdown" data-l18n="language">Español</a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="#" class="dropdown-item" data-l18n-lang="es">Español</a>
+                <a href="#" class="dropdown-item" data-l18n-lang="en">English</a>
+            </div>
+        </div>
+
+        <a href="#" class="nav__menu"><i></i></a>
+    </div>
 </nav>
 {# END Navbar #}
 
 {# BEGIN Mobile Menu #}
 <div class="menu__container">
     <div class="menu__content container h-100 d-flex flex-column align-items-center justify-content-center">        
-        <div class="content__wrapper">
+        <div class="content__wrapper mt-5 mt-md-0">
             <ul class="menu__list nav flex-column text-center">
                 <li class="list__link py-2">
-                    <a href="/index.html">Inicio</a>
+                    <a href="/index.html" data-l18n="home">Inicio</a>
                 </li>
 
                 <li class="list__link py-2">
-                    <a href="/portfolio.html">Portafolio</a>
+                    <a href="/portfolio.html" data-l18n="portfolio">Portafolio</a>
                 </li>
 
                 <li class="list__link py-2 mb-1">
-                    <a href="/about.html">Acerca</a>
+                    <a href="/about.html" data-l18n="about">Acerca</a>
                 </li>            
             </ul>
         
@@ -27,25 +37,25 @@
             <div class="row row-cols-md-2 row-cols-1 text-center py-3 py-md-4">
                 <div class="col">
                     <div class="d-none d-md-block">
-                        <h6 class="text-white">Contacto</h6>
-                        <p>Estare encantado de atenderle, atendere sus inquietudes a la brevedad posible.</p>
+                        <h6 class="text-white" data-l18n="contact">Contacto</h6>
+                        <p data-l18n="h-contact-p">Estare encantado de atenderle, atendere sus inquietudes a la brevedad posible.</p>
                     </div>
                     <a href="{{ links.contact }}" 
                        target="_blank" 
                        class="btn btn-featured">
-                       <span><i class="icon-envelop"></i> Contacto</span>
+                       <span><i class="icon-envelop mr-1"></i><span data-l18n="contact">Contacto</span></span>
                        <i class="icon-arrow-right22"></i>
                     </a>
                 </div>
                 <div class="col mt-3 mt-md-0">
                     <div class="d-none d-md-block">
-                        <h6 class="text-white">Descargar Curriculum</h6>
-                        <p>Descargue el resumen curricular pulsando en la opcion de abajo</p>
+                        <h6 class="text-white" data-l18n="h-summary">Descargar Curriculum</h6>
+                        <p data-l18n="h-summary-p">Descargue el resumen curricular pulsando en la opcion de abajo</p>
                     </div>
                     <a href="{{ links.curriculum }}"
                        target="_blank" 
                        class="btn btn-featured">
-                        <span><i class="icon-profile"></i> Descargar</span>
+                        <span><i class="icon-profile mr-1"></i><span data-l18n="download">Descargar</span></span>
                         <i class="icon-arrow-right22"></i>
                     </a>
                 </div>

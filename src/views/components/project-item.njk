@@ -4,7 +4,8 @@
 <div class="project__item {{'phone-zoom' if pkg.flags and 'portfolioPhone' in pkg.flags}}"
     data-plt="{{pkg.platforms | join(',')}}"
     data-lang="{{pkg.languages | join(',')}}"
-    data-date="{{pkg.createdAt | timestamp}}">
+    data-date="{{pkg.createdAt | timestamp}}"
+    data-l18n-pkg="{{key}}">
 
     {# BEGIN Content #}
     <div class="content" style="background-color: {{colors[key]}};">
@@ -32,7 +33,7 @@
                         </div>
                         {# END Meta Attributes #}
 
-                        <p class="mb-0 mt-2">{{pkg.shortDescription}}</p>
+                        <p class="mb-0 mt-2" data-l18n-pkg-prop="shortDescription">{{pkg.shortDescription}}</p>
                     </div>
 
                     {# BEGIN Title #}

@@ -1,13 +1,13 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %} 
-<section class="section__half section--sm-full min-vh-100 row">
+<section class="section__half min-vh-100 row">
   {# BEGIN Featured Image #}
   <div class="section__image corner--radius col-12 col-md-6 d-flex flex-column justify-content-center align-items-center pt-9 pb-5" style="background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);">
     {# Featured Heading #}
     <div class="image__content w-60">      
       <img src="/img/profile.png" class="img-fluid ml-n8" data-aos="fade-in" data-aos-duration="2500" />
-      <h5 class="font-weight-bold mt-3 mb-1 text-white">Acerca de</h5>
+      <h5 class="font-weight-bold mt-3 mb-1 text-white" data-l18n="a-feat">Acerca de</h5>
       <h1 class="display-4 font-weight-bolder text-white" data-aos="section-title">David Romero</h1>
     </div>
   </div>
@@ -16,14 +16,14 @@
   {# BEGIN Featured Text #}
   <div class="section__text col-12 col-md-6 py-4 py-md-0 d-flex align-items-center justify-content-center">
     <div class="text__inner text-justify" data-aos="fade-right">
-      <p>Hola, soy David Romero 👋</p>
-      <p>Me apasiona la <i>&lt;programación /&gt;</i> como recurso para construir el futuro del mañana, haciendo uso de la tecnología, como el complemento ideal para alcanzar nuevas metas como sociedad.</p>
-      <p>Nacido en la ciudad de Ejido, Estado Mérida. Egresado de la Universidad de Falcon en el Estado Falcon, bajo el título de Ingeniero Electrónico, mención “Telecomunicaciones”.</p>
+      <p data-l18n="a-feat-p0">Hola, soy David Romero 👋</p>
+      <p data-l18n="a-feat-p1">Me apasiona la <i>&lt;programación /&gt;</i> como recurso para construir el futuro del mañana, haciendo uso de la tecnología, como el complemento ideal para alcanzar nuevas metas como sociedad.</p>
+      <p data-l18n="a-feat-p2">Nacido en la ciudad de Ejido, Estado Mérida. Egresado de la Universidad de Falcon en el Estado Falcon, bajo el título de Ingeniero Electrónico, mención “Telecomunicaciones”.</p>
 
       <div class="text-center text-md-left">
         <div class="btn-group mt-5">
             <a href="{{ links.curriculum }}" target="_blank" class="btn btn-outline-dark">
-                <i class="icon-profile mr-2"></i> Descargar Curriculum
+                <i class="icon-profile mr-2"></i><span data-l18n="h-summary">Descargar Curriculum</span>
             </a>
             <a href="{{ links.contact }}" 
                 target="_blank"
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <small class="text__slide d-none d-md-block" data-aos="text-slide" data-aos-anchor=".section__text">Deslize para ver mas información</small>
+    <small class="text__slide d-none d-md-block" data-aos="text-slide" data-aos-anchor=".section__text" data-l18n="swipe-down">Deslize para ver mas información</small>
   </div>
   {# END Featured Text #}
 </section>
@@ -50,23 +50,23 @@
         <cite class="small"><a href="https://lottiefiles.com/20051-programming" target="_blank">Programming</a> by Taurusa Mahda Saputra</cite>
       </div>
       <div class="col-12 col-md-6 text-justify">
-        <h1 class="mb-4">🔗 Introduccion</h1>        
-        <p data-aos="fade-up" data-aos-anchor="#about__introduction">Me encuentro en la búsqueda constante de nuevos conocimientos, y desafíos que resulten de motivación e impulso hacia el uso de nuevas tecnologías y el desarrollo de soluciones de mejor calidad.</p>
-        <h6 data-aos="fade-in" data-aos-delay="150" data-aos-anchor="#about__introduction">Considerado por mis colegas como:</h6>
+        <h1 class="mb-4">🔗<span data-l18n="a-s0">Introduccion<span></h1>
+        <p data-aos="fade-up" data-aos-anchor="#about__introduction" data-l18n="a-s0-p0">Me encuentro en la búsqueda constante de nuevos conocimientos, y desafíos que resulten de motivación e impulso hacia el uso de nuevas tecnologías y el desarrollo de soluciones de mejor calidad.</p>
+        <h6 data-aos="fade-in" data-aos-delay="150" data-aos-anchor="#about__introduction" data-l18n="a-s0-p1">Considerado por mis colegas como:</h6>
         <ul class="list-style-none pl-3">
-          <li data-aos="fade-right" data-aos-delay="200" data-aos-anchor="#about__introduction"><span>🙋‍♂</span> Una persona proactiva.</li>
-          <li data-aos="fade-right" data-aos-delay="250" data-aos-anchor="#about__introduction"><span>🤝</span> Habil en el trabajo en equipo.</li>
-          <li data-aos="fade-right" data-aos-delay="300" data-aos-anchor="#about__introduction"><span>🥵</span> Eficiente en el trabajo bajo presión.</li>
+          <li data-aos="fade-right" data-aos-delay="200" data-aos-anchor="#about__introduction"><span>🙋‍♂</span><span data-l18n="a-s0-p1-s0">Una persona proactiva.</span></li>
+          <li data-aos="fade-right" data-aos-delay="250" data-aos-anchor="#about__introduction"><span>🤝</span><span data-l18n="a-s0-p1-s1">Habil en el trabajo en equipo.</span></li>
+          <li data-aos="fade-right" data-aos-delay="300" data-aos-anchor="#about__introduction"><span>🥵</span><span data-l18n="a-s0-p1-s2">Eficiente en el trabajo bajo presión.</span></li>
         </ul>
-        <h6 data-aos="fade-in" data-aos-delay="450" data-aos-anchor="#about__introduction">Durante el tiempo libre adoro:</h6>
+        <h6 data-aos="fade-in" data-aos-delay="450" data-aos-anchor="#about__introduction" data-l18n="a-s0-p2">Durante el tiempo libre adoro:</h6>
         <ul class="list-style-none pl-3">
-          <li data-aos="fade-right" data-aos-delay="500" data-aos-anchor="#about__introduction"><span>📖</span> La lectura</li>
-          <li data-aos="fade-right" data-aos-delay="550" data-aos-anchor="#about__introduction"><span>🧠</span> El descubrimiento de nuevos temas</li>
-          <li data-aos="fade-right" data-aos-delay="600" data-aos-anchor="#about__introduction"><span>🎮</span> Jugar a algún videojuego </li>
-          <li data-aos="fade-right" data-aos-delay="650" data-aos-anchor="#about__introduction"><span>💻</span> Colaborar con proyectos de la comunidad</li>
-          <li data-aos="fade-right" data-aos-delay="700" data-aos-anchor="#about__introduction"><span>🏞</span> El aire libre también es bien apreciado</li>
+          <li data-aos="fade-right" data-aos-delay="500" data-aos-anchor="#about__introduction"><span>📖</span><span data-l18n="a-s0-p2-s0">La lectura.</span></li>
+          <li data-aos="fade-right" data-aos-delay="550" data-aos-anchor="#about__introduction"><span>🧠</span><span data-l18n="a-s0-p2-s1">El descubrimiento de nuevos temas.</span></li>
+          <li data-aos="fade-right" data-aos-delay="600" data-aos-anchor="#about__introduction"><span>🎮</span><span data-l18n="a-s0-p2-s2">Jugar a algún videojuego.</span></li>
+          <li data-aos="fade-right" data-aos-delay="650" data-aos-anchor="#about__introduction"><span>💻</span><span data-l18n="a-s0-p2-s3">Colaborar con proyectos de la comunidad.</span></li>
+          <li data-aos="fade-right" data-aos-delay="700" data-aos-anchor="#about__introduction"><span>🏞</span><span data-l18n="a-s0-p2-s4">El aire libre también es bien apreciado.</span></li>
         </ul>
-        <p data-aos="fade-up" data-aos-delay="1000" data-aos-anchor="#about__introduction">¡Hablando de la comunidad! En un mundo tan interconectado, considero un honor poder compartir conocimientos con colegas a escala global. Me apasiona la colaboración en proyectos Open Source y a menudo tomo un tiempo para atender dudas y participar en debates a través de comunidades como la Popular StackOverflow.</p>
+        <p data-aos="fade-up" data-aos-delay="1000" data-aos-anchor="#about__introduction" data-l18n="a-s0-p3">¡Hablando de la comunidad! En un mundo tan interconectado, considero un honor poder compartir conocimientos con colegas a escala global. Me apasiona la colaboración en proyectos Open Source y a menudo tomo un tiempo para atender dudas y participar en debates a través de comunidades como la Popular StackOverflow.</p>
       </div>
     </div>
 
@@ -74,10 +74,10 @@
 
     <div id="about__development" class="row align-items-center">
       <div class="col-12 col-md-6 text-justify">
-        <h1 class="mb-4">🔗 Desarrollo Full Stack</h1>
-        <p data-aos="fade-up">Bajo la premisa del <b>Desarrollo Full Stack</b>, he colaborado con maravillosos equipos bajo modalidad a distancia para la construcción de soluciones completas a la medida de los requerimientos del cliente.</p>
-        <p data-aos="fade-up" data-aos-delay="150" data-aos-anchor="#about__development">Durante más de cinco años me he desempeñado en el ámbito del <i>Freelancing</i>, contando con la oportunidad de tener interacción directa con el cliente para el desarrollo de soluciones, partiendo de la toma de requerimientos, hasta la entrega y despliegue de un producto mínimo que traiga respuesta a sus necesidades.</p>
-        <p data-aos="fade-up" data-aos-delay="300" data-aos-anchor="#about__development">Asimismo, en el ámbito profesional, el trabajo en equipo y la gestión de proyectos resultan mi pasión. En donde, a través de una visión global y metodología agiles adecuadas, cada integrante aporta de forma integral: Dedicación, conocimientos y esfuerzo. Bloque por bloque hasta la entrega de resultados factibles, que proyecten el talento y la visión que nos representa 🌟</p>
+        <h1 class="mb-4">🔗<span data-l18n="a-s1">Desarrollo Full Stack<span></h1>
+        <p data-aos="fade-up" data-l18n="a-s1-p0">Bajo la premisa del <b>Desarrollo Full Stack</b>, he colaborado con maravillosos equipos bajo modalidad a distancia para la construcción de soluciones completas a la medida de los requerimientos del cliente.</p>
+        <p data-aos="fade-up" data-aos-delay="150" data-aos-anchor="#about__development" data-l18n="a-s1-p1">Durante más de cinco años me he desempeñado en el ámbito del <i>Freelancing</i>, contando con la oportunidad de tener interacción directa con el cliente para el desarrollo de soluciones, partiendo de la toma de requerimientos, hasta la entrega y despliegue de un producto mínimo que traiga respuesta a sus necesidades.</p>
+        <p data-aos="fade-up" data-aos-delay="300" data-aos-anchor="#about__development" data-l18n="a-s1-p2">Asimismo, en el ámbito profesional, el trabajo en equipo y la gestión de proyectos resultan mi pasión. En donde, a través de una visión global y metodología agiles adecuadas, cada integrante aporta de forma integral: Dedicación, conocimientos y esfuerzo. Bloque por bloque hasta la entrega de resultados factibles, que proyecten el talento y la visión que nos representa 🌟</p>
       </div>
       <div class="col-12 col-md-6 text-center my-5 my-md-0">        
         <div data-lottie="/img/lottie/protocols.json" data-aos="zoom-in" data-aos-duration="1250"></div>
@@ -90,13 +90,13 @@
     <div class="row py-8 align-items-center">
       <div class="col-12 col-md-4 pl-5 pl-md-8 text-white text-justify">
         <i class="icon-code display-4"></i>
-        <h1 class="text-white mb-4">El Stack</h1>
-        <p>Al igual que el albañil, los desarrolladores contamos con herramientas, que definen buena parte del perfil de calidad y dedicación aplicados en sus proyectos.</p>
+        <h1 class="text-white mb-4" data-l18n="a-s2">El Stack</h1>
+        <p data-l18n="a-s2-p0">Al igual que el albañil, los desarrolladores contamos con herramientas, que definen buena parte del perfil de calidad y dedicación aplicados en sus proyectos.</p>
         <hr>
         <div class="font-small">
-          <p class="mb-2 mt-4 font-weight-bolder">Herramientas:</p>
+          <p class="mb-2 mt-4 font-weight-bolder" data-l18n="a-s2-p1">Herramientas:</p>
           <ul class="pl-3 mb-0">
-            <li>Scripting bajo Python, Bash y Batch</li>
+            <li data-l18n="a-s2-p1-s0">Scripting bajo Python, Bash y Batch</li>
           </ul>
           <ul class="pl-3" style="columns: 2">     
             <li>CodePen, Stackblitz</li>
@@ -110,7 +110,7 @@
             <li>HackMD</li>
             <li>RegExr</li>
             <li>Ngrok</li>
-            <li>Lapiz y Papel</li>
+            <li data-l18n="a-s2-p1-s1">Lapiz y Papel</li>
           </ul>
         </div>
       </div>
@@ -121,34 +121,34 @@
                 <div class="heading text-center">
                   <i class="icon-embed2 icon--lg"></i>
                   <h4 class="mt-3">Frontend</h4>
-                  <small class="text-muted">Sitios web bajo CMS, estaticos y aplicaciones web modernas.</small>
+                  <small class="text-muted" data-l18n="a-s2-p2-s0-i0">Sitios web bajo CMS, estaticos y aplicaciones web modernas.</small>
                 </div>
                 <ul class="mt-3 pl-3">
                   <li>HTML, CSS3, JS(ES9)</li>
                   <li>SASS, TypeScript</li>
                   <li>VueJS + Vuex / React + Context / Angular (2+)</li>
-                  <li>CMS y Otros stacks: Wordpress, Webflow, Gatsby</li>
-                  <li>Tambien: Bootstrap 4+, Foundation, Lottie</li>
+                  <li data-l18n="a-s2-p2-s0-i1">CMS y Otros stacks: Wordpress, Webflow, Gatsby</li>
+                  <li data-l18n="a-s2-p2-s0-i2">Tambien: Bootstrap 4+, Foundation, Lottie</li>
                 </ul>
               </div>
               <div class="swiper-slide skill__card shadow-lg bg-light p-4" data-aos="fade-up" data-aos-delay="150" data-aos-anchor=".skills__slideshow">
                 <div class="heading text-center">
                   <i class="icon-library icon--lg"></i>
                   <h4 class="mt-3">Backend</h4>
-                  <small class="text-muted">APIs Stateful / Stateless, Push Messaging y Microservicios.</small>
+                  <small class="text-muted">APIs Stateful / Stateless, Push Messaging, Microservicios.</small>
                 </div>
                 <ul class="mt-3 pl-3">
                   <li>NodeJS, Python, PHP, Java, .NET</li>
                   <li>Express, Django, Flask, Laravel, CakePHP, Spring Boot, ASP.Net Core</li>
-                  <li>Bases de datos: MongoDB, MariaDB, Redis, PostgreSQL</li>
-                  <li>Microservicios: Eureka / Zuul</li>
+                  <li data-l18n="a-s2-p2-s1-i0">Bases de datos: MongoDB, MariaDB, Redis, PostgreSQL</li>
+                  <li data-l18n="a-s2-p2-s1-i1">Microservicios: Eureka / Zuul</li>
                 </ul>
               </div>
               <div class="swiper-slide skill__card shadow-lg bg-light p-4" data-aos="fade-up" data-aos-delay="300" data-aos-anchor=".skills__slideshow">
                 <div class="heading text-center">
                   <i class="icon-mobile icon--lg"></i>
-                  <h4 class="mt-3">Moviles</h4>
-                  <small class="text-muted">Aplicaciones moviles nativas y multiplataforma</small>
+                  <h4 class="mt-3" data-l18n="a-s2-p2-s2">Moviles</h4>
+                  <small class="text-muted" data-l18n="a-s2-p2-s2-i0">Aplicaciones moviles nativas y multiplataforma</small>
                 </div>
                 <ul class="mt-3 pl-3">
                   <li>Apache Cordova</li>
@@ -161,8 +161,8 @@
               <div class="swiper-slide skill__card shadow-lg bg-light p-4" data-aos="fade-up" data-aos-delay="450" data-aos-anchor=".skills__slideshow">
                 <div class="heading text-center">
                   <i class="icon-display icon--lg"></i>
-                  <h4 class="mt-3">Escritorio</h4>
-                  <small class="text-muted">Aplicaciones profesionales de escritorio con soporte multiplataforma</small>
+                  <h4 class="mt-3" data-l18n="a-s2-p2-s3">Escritorio</h4>
+                  <small class="text-muted" data-l18n="a-s2-p2-s3-i0">Aplicaciones profesionales de escritorio con soporte multiplataforma</small>
                 </div>
                 <ul class="mt-3 pl-3">
                   <li>Electron</li>
@@ -174,7 +174,7 @@
                 <div class="heading text-center">
                   <i class="icon-cloud icon--lg"></i>
                   <h4 class="mt-3">Cloud Computing</h4>
-                  <small class="text-muted">Despliegue y gestion de soluciones en plataformas de Cloud Computing.</small>
+                  <small class="text-muted" data-l18n="a-s2-p2-s4-i0">Despliegue y gestion de soluciones en plataformas de Cloud Computing.</small>
                 </div>
                 <ul class="mt-3 pl-3">
                   <li>Firebase</li>
@@ -187,7 +187,7 @@
                 <div class="heading text-center">
                   <i class="icon-pacman icon--lg"></i>
                   <h4 class="mt-3">Game Development</h4>
-                  <small class="text-muted">Desarrollo de juegos, simulaciones y escenarios interactivos.</small>
+                  <small class="text-muted" data-l18n="a-s2-p2-s5-i0">Desarrollo de juegos, simulaciones y escenarios interactivos.</small>
                 </div>
                 <ul class="mt-3 pl-3">
                   <li>Unity3D</li>

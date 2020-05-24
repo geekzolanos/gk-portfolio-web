@@ -1,11 +1,13 @@
 {% if pkg.actions.length == 1 %}
     <a href="{{ pkg.actions[0].url }}" target="_blank" class="btn btn-lg btn-outline-light">
-        <i class="{{ pkg.actions[0].iconClass }} mr-2"></i>{{ pkg.actions[0].name }}
+        <i class="{{ pkg.actions[0].iconClass }} mr-2"></i>
+        <span data-l18n-pkg-prop="actions[0][name]">{{ pkg.actions[0].name }}</span>
     </a>
 {% elif pkg.actions.length == 2 %}
     <div class="btn-group mt-5">
         <a href="{{ pkg.actions[0].url }}" target="_blank" class="btn btn-lg btn-outline-light">
-            <i class="{{ pkg.actions[0].iconClass }} mr-2"></i>{{ pkg.actions[0].name }}
+            <i class="{{ pkg.actions[0].iconClass }} mr-2"></i>            
+            <span data-l18n-pkg-prop="actions[0][name]">{{ pkg.actions[0].name }}</span>
         </a>
         <a href="{{ pkg.actions[1].url }}" 
             target="_blank"
@@ -19,14 +21,16 @@
 {% else %}
     <div class="btn-group mt-5">
         <a href="{{ pkg.actions[0].url }}" target="_blank" class="btn btn-lg btn-outline-light">
-            <i class="{{ pkg.actions[0].iconClass }} mr-2"></i>{{ pkg.actions[0].name }}
+            <i class="{{ pkg.actions[0].iconClass }} mr-2"></i>            
+            <span data-l18n-pkg-prop="actions[0][name]">{{ pkg.actions[0].name }}</span>
         </a>
         <button type="button" class="btn btn-lg btn-outline-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
         <div class="dropdown-menu dropdown-menu-right">
-            <h6 class="dropdown-header">Acciones adicionales</h6>
+            <h6 class="dropdown-header" data-l18n="action-more">Acciones adicionales</h6>
             {% for i in range(1, pkg.actions.length) -%}
                 <a href="{{ pkg.actions[i].url }}" class="dropdown-item">
-                    <i class="{{ pkg.actions[i].iconClass }} mr-2"></i>{{ pkg.actions[i].name }}
+                    <i class="{{ pkg.actions[i].iconClass }} mr-2"></i>
+                    <span data-l18n-pkg-prop="actions[i][name]">{{ pkg.actions[i].name }}</span>
                 </a>
             {%- endfor %}
         </div>

@@ -1,7 +1,7 @@
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-<section class="section__half vh-100 row">
+<section class="section__half min-vh-100 row">
   {# BEGIN Featured Image #}
   <div class="section__image col-12 col-md-6 d-flex flex-column justify-content-center align-items-center pt-9 pb-5" style="background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);">
     {# Featured Particles #}
@@ -9,8 +9,8 @@
 
     {# Featured Heading #}
     <div class="image__content w-60 text-white">      
-      <h1 class="display-4 font-weight-bolder text-white" data-aos="section-title">Bienvenido</h1>
-      <p class="text-justify font-weight-light mt-4">El futuro es ahora. El momento perfecto para convertir tus ideas, en realidad.</p>
+      <h1 class="display-4 font-weight-bolder text-white" data-aos="section-title" data-l18n="welcome">Bienvenido</h1>
+      <p class="text-justify font-weight-light mt-4" data-l18n="i-feat-desc">El futuro es ahora. El momento perfecto para convertir tus ideas, en realidad.</p>
     </div>
   </div>
   {# END Featured Image #}
@@ -19,12 +19,12 @@
   <div class="section__text col-12 col-md-6 py-4 py-md-0 d-flex align-items-center justify-content-center">
     <div class="text__inner text-justify" data-aos="fade-right">
       <h1 class="mb-5"><i class="h1 icon-home2" style="color: #a3a3a3;"></i></h1>
-      <p>Hola, soy David Romero, desarrollo aplicaciones y servicios para múltiples propósitos con mas de 7 años de experiencia en el área. </p>
-      <p>Siéntase libre de dar un vistazo a mis proyectos recientes. Si gusta, puede dejar un mensaje, será un placer atenderle.</p>
+      <p data-l18n="i-feat-p0">Hola, soy David Romero, desarrollo aplicaciones y servicios para múltiples propósitos con mas de 7 años de experiencia en el área. </p>
+      <p data-l18n="i-feat-p1">Siéntase libre de dar un vistazo a mis proyectos recientes. Si gusta, puede dejar un mensaje, será un placer atenderle.</p>
 
       <div class="btn-group mt-5">
           <a href="/portfolio.html" class="btn btn-outline-dark">
-              <i class="icon-stack mr-2"></i> Portafolio
+              <i class="icon-stack mr-2"></i><span data-l18n="portfolio">Portafolio</span>
           </a>
           <a href="/about.html"
               class="btn btn-outline-dark" 
@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <small class="text__slide d-none d-md-block" data-aos="text-slide" data-aos-anchor=".section__text">Deslize para ver mas información</small>
+    <small class="text__slide d-none d-md-block" data-aos="text-slide" data-aos-anchor=".section__text" data-l18n="swipe-down">Deslize para ver mas información</small>
   </div>
   {# END Featured Text #}
 </section>
