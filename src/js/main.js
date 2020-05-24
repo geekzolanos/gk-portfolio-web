@@ -331,7 +331,7 @@
 		Particles
 	----------------------------------------*/
 	const particles = function() {
-		if( ! document.querySelector('#image__particles') ) return;
+		if( ! document.querySelector('#image__particles') || window.outerWidth <= 400 ) return;
 
 		particlesJS('image__particles', {
 			particles: {

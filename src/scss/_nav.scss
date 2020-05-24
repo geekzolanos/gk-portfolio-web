@@ -76,8 +76,10 @@ $menu-link-delay: .15;
  body.menu--open {
     overflow: hidden;
 
-    .main__content {
-        filter: blur(8px);
+    @include media-breakpoint-up('md') {
+        .main__content {
+            filter: blur(8px);
+        }
     }
 
     .menu__container {
