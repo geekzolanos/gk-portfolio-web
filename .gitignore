@@ -1,4 +1,4 @@
-build
 node_modules
+/build
+/.tmp
 /**/*.min.*
-/**/*.map
