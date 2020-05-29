@@ -1,201 +1,201 @@
+/* stylelint-disable no-descending-specificity */
+
 $item-tr-easing: cubic-bezier(0.25, 1, 0.5, 1);
-$item-tr-duration: .6;
+$item-tr-duration: 0.6;
 
 $item-tr-dsmall: $item-tr-duration * 0.34;
 $item-tr-dlarge: $item-tr-duration * 1.12;
 
-
-#portfolio__header:before {
-    content: '';
-    display: block;
-    margin: auto;
-    height: 6px;
-    width: 8%;
-    background: #888;
+#portfolio__header::before {
+  content: '';
+  display: block;
+  margin: auto;
+  height: 6px;
+  width: 8%;
+  background: #888;
 }
 
 #portfolio__filters {
-    #search-input {
-        @include media-breakpoint-up('md') {
-            width: 98%;
-            transition: border-color .3s, box-shadow .3s, width .3s;
-            transition-timing-function: ease-out;
-            
-            &:focus {
-                width: 105%;
-            }
-        }
+  #search-input {
+    @include media-breakpoint-up('md') {
+      width: 98%;
+      transition: border-color 0.3s, box-shadow 0.3s, width 0.3s;
+      transition-timing-function: ease-out;
+
+      &:focus {
+        width: 105%;
+      }
     }
+  }
 }
 
 #portfolio__grid {
-    position: relative;
-    width: calc(80vw + 20px);
-    margin: auto; 
+  position: relative;
+  width: calc(80vw + 20px);
+  margin: auto;
 
-    .project__item { 
-        position: absolute;
-        margin: 5px;
-    }
+  .project__item {
+    position: absolute;
+    margin: 5px;
+  }
 }
 
 .project__item {
-    display: block;
-    z-index: 1;
-    color: #fff;
-    width: 100%;
-    cursor: pointer;
+  display: block;
+  z-index: 1;
+  color: #fff;
+  width: 100%;
+  cursor: pointer;
 
-    a {
-        color: inherit;
+  a {
+    color: inherit;
+  }
+
+  @media (min-width: 768px) {
+    width: 40vw;
+  }
+
+  .content {
+    position: relative;
+    border-radius: 12px;
+    text-align: center;
+    overflow: hidden;
+
+    img {
+      transform: scale(1.1);
+      width: 100%;
+      transition: filter #{$item-tr-duration}s, transform #{$item-tr-duration}s;
+      transition-timing-function: $item-tr-easing;
+      will-change: transform, filter;
+    }
+  }
+
+  .meta {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    z-index: 10;
+    transition: background-color #{$item-tr-duration}s ease-out;
+    will-change: background-color;
+
+    .meta__inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
     }
 
-    @media (min-width: 768px) {
-        width: 40vw;
+    .meta__date {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 0.78em;
+      border-radius: 8px;
+      padding: 5px 10px;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
     }
 
-    .content {
-        position: relative;
-        border-radius: 12px;
-        text-align: center;
-        overflow: hidden;
-    
-        img {
-            transform: scale(1.1);
-            width: 100%;
-            transition: filter #{$item-tr-duration}s, transform #{$item-tr-duration}s;
-            transition-timing-function: $item-tr-easing;
-            will-change: transform, filter;
-        }
+    .meta__content {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      opacity: 0;
+      font-size: 0.85em;
+      transition: opacity #{$item-tr-duration}s ease-out;
+      will-change: opacity;
     }
-    
-    .meta {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+
+    .meta__title {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      transition: transform #{$item-tr-duration}s;
+      transition-timing-function: $item-tr-easing;
+      will-change: transform;
+
+      h2 {
+        margin: auto;
+        display: inline-block;
+        transform-origin: bottom;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 1.4rem;
         padding: 1rem;
-        z-index: 10;
-        transition: background-color #{$item-tr-duration}s ease-out;
-        will-change: background-color;
-    
-        .meta__inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-    
-        .meta__date {
-            position: absolute;
-            top: 0;
-            right: 0;
-            font-size: .78em;
-            border-radius: 8px;
-            padding: 5px 10px;
-            box-shadow: 0 0 4px rgba(0,0,0,0.4);
-        }
-    
-        .meta__content {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            opacity: 0;
-            font-size: .85em;
-            transition: opacity #{$item-tr-duration}s ease-out;
-            will-change: opacity;
-        }
-    
-        .meta__title {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            transition: transform #{$item-tr-duration}s;
-            transition-timing-function: $item-tr-easing;
-            will-change: transform;
-    
-            h2 {
-                margin: auto;
-                display: inline-block;
-                transform-origin: bottom;
-                background-color: rgba(0,0,0,0.6);
-                border-radius: 1.4rem;
-                padding: 1rem;
-                margin: 0;
-                color: white;
-                font-size: .8em;
-                white-space: nowrap;
-                transition: transform #{$item-tr-duration}s, background-color #{$item-tr-dsmall}s;
-                transition-timing-function: $item-tr-easing;
-                will-change: transform, background-color;
-            }
-        }
-    
-        .meta__attrs {
-            position: relative;
-            padding-top: 2.05rem;
-    
-            &:after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 30%;
-                width: 40%;
-                height: 2px;
-                background-color: rgba(255,255,255,0.4);
-                transform: scale(0.45);
-                transition: transform #{$item-tr-dlarge}s ease-out;
-                will-change: transform;
-            }
-    
-            ul { display: inline-block; }            
-        }
+        color: white;
+        font-size: 0.8em;
+        white-space: nowrap;
+        transition: transform #{$item-tr-duration}s, background-color #{$item-tr-dsmall}s;
+        transition-timing-function: $item-tr-easing;
+        will-change: transform, background-color;
+      }
     }
 
+    .meta__attrs {
+      position: relative;
+      padding-top: 2.05rem;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 30%;
+        width: 40%;
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.4);
+        transform: scale(0.45);
+        transition: transform #{$item-tr-dlarge}s ease-out;
+        will-change: transform;
+      }
+
+      ul { display: inline-block; }
+    }
+  }
+
+  &.phone-zoom {
+    .content {
+      padding: 1rem;
+    }
+
+    img {
+      width: auto;
+      transform: scale(1.4);
+      transform-origin: top;
+    }
+  }
+
+  &:hover {
     &.phone-zoom {
-        .content {                
-            padding: 1rem;
-        }
-
-        img {
-            width: auto;
-            transform: scale(1.4);
-            transform-origin: top;
-        }
+      img {
+        transform: scale(1.2);
+      }
     }
 
-    &:hover {
-        &.phone-zoom {    
-            img {
-                transform: scale(1.2);
-            }
-        }
-
-        img { 
-            filter: blur(2.8px); 
-            transform: scale(1.05);
-        }
-
-        .meta { 
-            background-color: rgba(0,0,0,0.25); 
-        }            
-
-        .meta__title h2 {
-            background-color: transparent;
-            text-shadow: 0 0 8px rgba(0,0,0,0.24);
-        }
-
-        .meta__content {
-            opacity: 1;
-            transition-delay: .3s;
-            transition-timing-function: $item-tr-easing;
-        }
-
-        .meta__attrs:after {                
-            transform: scale(1);
-            transition-delay: .3s;
-            transition-timing-function: $item-tr-easing;
-        }
+    img {
+      filter: blur(2.8px);
+      transform: scale(1.05);
     }
+
+    .meta {
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+
+    .meta__title h2 {
+      background-color: transparent;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.24);
+    }
+
+    .meta__content {
+      opacity: 1;
+      transition-delay: 0.3s;
+      transition-timing-function: $item-tr-easing;
+    }
+
+    .meta__attrs::after {
+      transform: scale(1);
+      transition-delay: 0.3s;
+      transition-timing-function: $item-tr-easing;
+    }
+  }
 }

@@ -1,51 +1,51 @@
 .featured {
-    .section__image img {
-        max-width: 100%;
-    }
+  .section__image img {
+    max-width: 100%;
+  }
 
-    .meta__lang {
-        font-size: 14px;
-    }
+  .meta__lang {
+    font-size: 14px;
+  }
 }
 
 .btn-featured {
-    position: relative;
-    border-width: 2px;
-    border-style: solid;
-    padding-left: 30px;
-    padding-right: 30px;
-    font-size: .895em;
-    transition: background-color 300ms ease;
+  position: relative;
+  border-width: 2px;
+  border-style: solid;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 0.895em;
+  transition: background-color 300ms ease;
 
-    >span {
-        display: inline-block;
-        transition: transform 300ms ease;
-        white-space: nowrap;
+  > span {
+    display: inline-block;
+    transition: transform 300ms ease;
+    white-space: nowrap;
+  }
+
+  > i {
+    position: absolute;
+    right: 20px;
+    top: 34%;
+    opacity: 0;
+    transform: scale(0.4);
+    transition: transform 300ms ease, opacity 300ms ease;
+  }
+
+  &:focus {
+    color: black;
+  }
+
+  &:hover {
+    color: white;
+
+    > span {
+      transform: translateX(-10px);
     }
 
-    >i {
-        position: absolute;
-        right: 20px;
-        top: 34%;
-        opacity: 0;
-        transform: scale(.4);
-        transition: transform 300ms ease, opacity 300ms ease;
+    > i {
+      transform: scale(1);
+      opacity: 1;
     }
-
-    &:focus {
-        color: black;
-    }
-
-    &:hover {
-        color: white;
-
-        >span {
-            transform: translateX(-10px);
-        }
-
-        >i {            
-            transform: scale(1);
-            opacity: 1;
-        }
-    }
+  }
 }
