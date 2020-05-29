@@ -1,5 +1,6 @@
 {
   "name": "gk-portfolio-web",
+  "displayName": "GK Portfolio",
   "description": "Plantilla base para portafolio personal",
   "author": {
     "name": "David Romero",
@@ -34,7 +35,8 @@
     "cssnano": "^4.1.10",
     "imagemin-webp": "^6.0.0",
     "nearest-color": "^0.4.4",
-    "node-vibrant": "^3.1.5"
+    "node-vibrant": "^3.1.5",    
+    "cross-env": "^5.2.0"
   },
   "dependencies": {
     "@fancyapps/fancybox": "^3.5.7",
@@ -53,6 +55,10 @@
     "turbolinks": "^5.2.0",
     "turbolinks-animate": "^3.2.1",
     "vanilla-lazyload": "^13.0.1"
+  },
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "cross-env NODE_ENV=production gulp build"
   },
   "browserslist": [
     "> 1%",
