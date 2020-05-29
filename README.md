@@ -2,7 +2,8 @@
 
 <a href="https://github.com/geekzolanos/gk-index/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: Unlicense"></a>
 
-<img src="https://i.ibb.co/ZV94nJr/gk-thumb.gif" />
+<p align="center"><img src="thumb.gif" /></p>
+
 A simple static portfolio template made for my personal <a href="https://geekzolanos.github.io/" target="_blank"> portfolio website</a> under Nunjucks and Bootstrap 4.
 
 ## :star: Features
