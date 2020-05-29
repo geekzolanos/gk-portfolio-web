@@ -1,6 +1,8 @@
 const pluginsProd = {
   autoprefixer: {},
-  cssnano: {},
+  cssnano: {
+    preset: 'default',
+  },
 };
 
 const pluginsDev = {
@@ -8,5 +10,5 @@ const pluginsDev = {
 };
 
 module.exports = ({ env }) => ({
-  plugins: (env === 'production') ? pluginsDev : { ...pluginsDev, ...pluginsProd },
+  plugins: (env === 'production') ? { ...pluginsDev, ...pluginsProd } : pluginsDev,
 });

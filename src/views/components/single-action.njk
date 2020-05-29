@@ -30,7 +30,7 @@
             {% for i in range(1, pkg.actions.length) -%}
                 <a href="{{ pkg.actions[i].url }}" class="dropdown-item">
                     <i class="{{ pkg.actions[i].iconClass }} mr-2"></i>
-                    <span data-l18n-pkg-prop="actions[i][name]">{{ pkg.actions[i].name }}</span>
+                    <span data-l18n-pkg-prop="actions[{{i}}][name]">{{ pkg.actions[i].name }}</span>
                 </a>
             {%- endfor %}
         </div>

@@ -272,6 +272,11 @@
                     "iconClass": "icon-github",
                     "name": "Ver en GitHub",
                     "url": "https://github.com/geekzolanos/speedgps-webapp/"
+                },
+                {
+                    "iconClass": "icon-android",
+                    "name": "Ver en Play Store",
+                    "url": "https://play.google.com/store/apps/details?id=com.gk.speedgps"
                 }
             ]
         },
@@ -316,7 +321,7 @@
                 {
                     "iconClass": "icon-github",
                     "name": "Ver en GitHub",
-                    "url": "#"
+                    "url": "https://github.com/geekzolanos/unity-webgl-ateneo"
                 }
             ]
         }
